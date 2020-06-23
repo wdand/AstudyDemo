@@ -13,14 +13,21 @@ import android.widget.Toast;
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.android.arouter.launcher.ARouter;
 
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
+
 @Route(path = ArouterConstants.MAIN_ACT)
 public class MainActivity extends Activity {
     ListView listView;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        EventBus.getDefault().register(this);
+        // 发布事件
+        EventBus.getDefault().post(new MessageEvent(1,"Hello EventBus!"));
+
         ARouter.init(this.getApplication());
         listView = findViewById(R.id.main_listView);
         String data[] = {"3种底部导航栏实现方式", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13"};
@@ -47,5 +54,14 @@ public class MainActivity extends Activity {
             }
         });
 
+    }
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onEventMainThread(String event) {
+
+    }
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        EventBus.getDefault().unregister(this);
     }
 }

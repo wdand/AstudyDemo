@@ -19,6 +19,9 @@ import android.widget.Button;
 
 import com.ashokvarma.bottomnavigation.BottomNavigationBar;
 import com.ashokvarma.bottomnavigation.BottomNavigationItem;
+
+import org.greenrobot.eventbus.EventBus;
+
 import java.util.ArrayList;
 
 @Route(path = ArouterConstants.BOTTOM_NACIGATION_PARENT)
@@ -61,4 +64,8 @@ public class BottomNavigationBarActivity extends Activity implements View.OnClic
         }
     }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+    }
 }

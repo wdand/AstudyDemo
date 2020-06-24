@@ -1,28 +1,38 @@
 package com.example.studydemo;
 
 public class MessageEvent {
+    private String msg;
+    private String level;
 
-    private int id;
-    private String name;
-
-    public MessageEvent(int id, String name) {
-        this.id = id;
-        this.name = name;
+    public MessageEvent(String msg, String level) {
+        this.msg = msg;
+        this.level = level;
     }
 
-    public int getId() {
-        return id;
+    public MessageEvent() {
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public String getMsg() {
+        return msg;
     }
 
-    public String getName() {
-        return name;
+    public void setMsg(String msg) {
+        this.msg = msg;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public String getLevel() {
+        return level;
+    }
+
+    public void setLevel(String level) {
+        this.level = level;
+    }
+
+    @Override
+    public String toString() {
+        return "MessageEvent{" +
+                "msg='" + msg + '\'' +
+                ", level='" + level + '\'' +
+                '}';
     }
 }

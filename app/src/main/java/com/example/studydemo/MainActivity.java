@@ -24,9 +24,7 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        EventBus.getDefault().register(this);
         // 发布事件
-        EventBus.getDefault().post(new MessageEvent(1,"Hello EventBus!"));
 
         ARouter.init(this.getApplication());
         listView = findViewById(R.id.main_listView);
@@ -49,19 +47,18 @@ public class MainActivity extends Activity {
                                 withString("buttonName","string").
                                 navigation();
                         break;
+                    case 1:
+                        EventBus.getDefault().post(new String("213"));
+                        break;
                 }
 //                Toast.makeText(MainActivity.this, result, Toast.LENGTH_SHORT).show();
             }
         });
 
     }
-    @Subscribe(threadMode = ThreadMode.MAIN)
-    public void onEventMainThread(String event) {
 
-    }
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        EventBus.getDefault().unregister(this);
     }
 }

@@ -1,6 +1,7 @@
 package com.example.studydemo.recycleviewdemo;
 
 
+import android.app.Dialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -36,6 +37,12 @@ public class RecAdapter extends RecyclerView.Adapter<RecAdapter.MyViewHolder> {
         Glide.with(holder.iv_avatar.getContext()).load(dataBean.getImgUrl()).into(holder.iv_avatar);
         holder.tv_title.setText(dataBean.getName());
         holder.tv_subTitle.setText(dataBean.getContent());
+        holder.tv_subTitle.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
 
         holder.contentView.setOnClickListener(new View.OnClickListener() {
             @Override

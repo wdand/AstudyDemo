@@ -22,6 +22,7 @@ import org.greenrobot.eventbus.ThreadMode;
 @Route(path = ArouterConstants.MAIN_ACT)
 public class MainActivity extends Activity {
     ListView listView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,7 +31,7 @@ public class MainActivity extends Activity {
 
         ARouter.init(this.getApplication());
         listView = findViewById(R.id.main_listView);
-        String data[] = {"3种底部导航栏实现方式", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13"};
+        String data[] = {"3种底部导航栏实现方式", "EventBus未完成", "带侧滑菜单的Recycleview", "自定义Dialog", "5", "6", "7", "8", "9", "10", "11", "12", "13"};
         //创建数组适配器，作为数据源和列表控件联系的桥梁
         //第一个参数：上下文环境
         //第二个参数：当前列表项加载的布局文件
@@ -46,7 +47,7 @@ public class MainActivity extends Activity {
                 switch (position) {
                     case 0:
                         ARouter.getInstance().build(ArouterConstants.BOTTOM_NACIGATION_PARENT).
-                                withString("buttonName","string").
+                                withString("buttonName", "string").
                                 navigation();
                         break;
                     case 1:
@@ -55,8 +56,12 @@ public class MainActivity extends Activity {
                     case 2:
 //                        ARouter.getInstance().build(ArouterConstants.RECYCLEVIEW_DETETEDEMO).
 //                                navigation();
-                        Intent intent = new Intent(MainActivity.this,RecycleViewDeleteAct.class);
+                        Intent intent = new Intent(MainActivity.this, RecycleViewDeleteAct.class);
                         startActivity(intent);
+                        break;
+                    case 3:
+                        ARouter.getInstance().build(ArouterConstants.CUSTOMDIALOT_ACT).
+                                navigation();
                         break;
                 }
 //                Toast.makeText(MainActivity.this, result, Toast.LENGTH_SHORT).show();

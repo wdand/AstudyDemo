@@ -46,4 +46,7 @@ dependencies {
     implementation 'com.ashokvarma.android:bottom-navigation-bar:0.9.5'
     implementation 'com.android.support:design:27.1.1'
     implementation 'org.greenrobot:eventbus:3.2.0'
+    implementation 'com.github.bumptech.glide:glide:4.5.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.5.0'
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
 }

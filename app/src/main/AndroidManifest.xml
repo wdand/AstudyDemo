@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.studydemo">
-
+    <uses-permission android:name="android.permission.INTERNET" />
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -9,12 +9,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".bottomnavigations.HelloWorld"></activity>
+        <activity android:name=".recycleviewdemo.RecycleViewDeleteAct"></activity>
+        <activity android:name=".bottomnavigations.HelloWorld" />
         <activity android:name=".bottomnavigations.RadiobuttonAndFragmentAct" />
         <activity android:name=".bottomnavigations.ViewPageAndRadioGroupAct" />
         <activity android:name=".bottomnavigations.BottomNavigationViewAct" />
         <activity android:name=".bottomnavigations.BottomNavigationBarActivity" />
-        <activity android:name=".MainActivity" >
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

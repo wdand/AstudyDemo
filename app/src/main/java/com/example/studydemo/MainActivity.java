@@ -3,6 +3,7 @@ package com.example.studydemo;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -12,6 +13,7 @@ import android.widget.Toast;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.android.arouter.launcher.ARouter;
+import com.example.studydemo.recycleviewdemo.RecycleViewDeleteAct;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -49,6 +51,12 @@ public class MainActivity extends Activity {
                         break;
                     case 1:
                         EventBus.getDefault().post(new String("213"));
+                        break;
+                    case 2:
+//                        ARouter.getInstance().build(ArouterConstants.RECYCLEVIEW_DETETEDEMO).
+//                                navigation();
+                        Intent intent = new Intent(MainActivity.this,RecycleViewDeleteAct.class);
+                        startActivity(intent);
                         break;
                 }
 //                Toast.makeText(MainActivity.this, result, Toast.LENGTH_SHORT).show();

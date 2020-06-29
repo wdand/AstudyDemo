@@ -50,6 +50,7 @@ public class BlankFragment extends Fragment {
         if (getArguments() != null) {
             mContentText = getArguments().getString(ARG_SHOW_TEXT);
         }
+
     }
 
     @Override

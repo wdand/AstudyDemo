@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".bottomnavigations.RadiobuttonAndFragmentAct">
+    <include layout="@layout/title_layout"></include>
 
     <FrameLayout
         android:id="@+id/fragment_container"

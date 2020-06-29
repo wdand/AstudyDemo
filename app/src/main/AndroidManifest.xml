@@ -3,6 +3,7 @@
     package="com.example.studydemo">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:allowBackup="true"
@@ -26,6 +27,17 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <!--    静态广播注册-->
+        <receiver
+            android:name=".broadcastreceiver.MyStaticBroadcastReceiver"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                //自定义Action
+                <action android:name="weidong" />
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>

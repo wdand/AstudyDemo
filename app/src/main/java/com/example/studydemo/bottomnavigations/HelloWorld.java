@@ -30,6 +30,12 @@ public class HelloWorld extends Activity {
                 EventBus.getDefault().post(new String("213"));
             }
         });
+        findViewById(R.id.back_button).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void onEventMainThread(String event) {

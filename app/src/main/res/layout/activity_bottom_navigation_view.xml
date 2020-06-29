@@ -7,6 +7,7 @@
     android:layout_height="match_parent"
 
     tools:context=".bottomnavigations.BottomNavigationViewAct">
+    <include layout="@layout/title_layout"></include>
 
     <TextView
         android:id="@+id/message"

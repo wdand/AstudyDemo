@@ -35,6 +35,12 @@ public class BottomNavigationBarActivity extends Activity implements View.OnClic
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bottom_navigation_bar);
         initView();
+        findViewById(R.id.back_button).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
 
     private void initView() {

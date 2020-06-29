@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.view.View;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.example.studydemo.ArouterConstants;
@@ -23,5 +24,11 @@ public class RecycleViewDeleteAct extends Activity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         RecAdapter adapter = new RecAdapter();
         recyclerView.setAdapter(adapter);
+        findViewById(R.id.back_button).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
 }

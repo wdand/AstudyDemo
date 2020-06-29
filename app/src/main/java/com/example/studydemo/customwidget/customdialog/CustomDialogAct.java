@@ -57,6 +57,12 @@ public class CustomDialogAct extends Activity implements View.OnClickListener,My
         btn8 = (Button)findViewById(R.id.btn_8);
         btn8.setOnClickListener(this);
         btn9 = (Button)findViewById(R.id.btn_9);
+        findViewById(R.id.back_button).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
         btn9.setOnClickListener(this);
         myDialog = new MyDialog(this,R.layout.dialog_2,new int[]{R.id.dialog_btn});
         myDialog.setOnCenterItemClickListener((MyDialog.OnCenterItemClickListener) this);

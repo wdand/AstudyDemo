@@ -5,12 +5,13 @@
     android:layout_height="match_parent"
     tools:context=".bottomnavigations.ViewPageAndRadioGroupAct">
 
+
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/fragment_vp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@+id/tabs_rg" />
-
+    <include layout="@layout/title_layout"></include>
     <RadioGroup
         android:id="@+id/tabs_rg"
         android:layout_width="match_parent"

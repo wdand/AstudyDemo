@@ -1,30 +1,66 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.example.studydemo.recyclerviewchecked.view.ChoiceItemLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="60dp"
-    android:gravity="center_vertical"
-    android:orientation="horizontal">
 
-    <LinearLayout
+
+    <com.example.studydemo.recycleviewdemo.SwipeMenuLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:qdx="http://schemas.android.com/apk/res-auto"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:id="@+id/item_layout_swip_choose"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:orientation="vertical">
+        android:clickable="false"
+        android:layout_height="match_parent"
+        qdx:isLeftMenu="false">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:id="@+id/parent_test"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/tv1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="tv1" />
+
+            <TextView
+                android:id="@+id/tv2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="tv2" />
+        </LinearLayout>
 
         <TextView
-            android:id="@+id/tv1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="tv1"/>
+            android:id="@+id/item_tv_top_choose"
+            android:layout_width="85dp"
+            android:layout_height="60dp"
+            android:background="#c7c7cd"
+            android:gravity="center"
+            android:onClick="btn_del"
+            android:text="置顶"
+            android:textColor="#fff" />
 
         <TextView
-            android:id="@+id/tv2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="tv2"/>
-    </LinearLayout>
+            android:id="@+id/item_tv_edit_choose"
+            android:layout_width="85dp"
+            android:layout_height="60dp"
+            android:background="#ff9d00"
+            android:gravity="center"
+            android:onClick="btn_edit"
+            android:text="编辑"
+            android:textColor="#fff" />
 
-</com.example.studydemo.recyclerviewchecked.view.ChoiceItemLayout>
+        <TextView
+            android:id="@+id/item_tv_del_choose"
+            android:layout_width="85dp"
+            android:layout_height="60dp"
+            android:background="#ff3a30"
+            android:gravity="center"
+            android:onClick="btn_del"
+            android:text="删除"
+            android:textColor="#fff" />
+    </com.example.studydemo.recycleviewdemo.SwipeMenuLayout>
+

@@ -13,7 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".recyclerviewchecked.activity.RecycleVeiwCheckedParentsAct" />
-        <activity android:name=".recyclerviewchecked.activity.SingleChoiceHeadFootActivity"></activity>
+        <activity android:name=".recyclerviewchecked.activity.SingleChoiceHeadFootActivity" />
         <activity android:name=".recyclerviewchecked.activity.MultipleChoiceActivity" />
         <activity android:name=".recyclerviewchecked.activity.BgSingleChoiceActivity" />
         <activity android:name=".recyclerviewchecked.activity.BgMultipleChoiceActivity" />
@@ -33,13 +33,14 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity> <!-- 静态广播注册 -->
+        </activity>
+        <!-- 静态广播注册 -->
         <receiver
             android:name=".broadcastreceiver.MyStaticBroadcastReceiver"
             android:enabled="true"
             android:exported="true">
             <intent-filter>
-                //自定义Action
+                <!-- 自定义Action -->
                 <action android:name="weidong" />
             </intent-filter>
         </receiver>

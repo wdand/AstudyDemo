@@ -19,6 +19,7 @@ import android.view.animation.LinearInterpolator;
 import com.example.studydemo.R;
 
 public class SwipeMenuLayout extends ViewGroup {
+    public boolean mChecked ;
     public SwipeMenuLayout(Context context) {
         this(context, null);
     }
@@ -430,5 +431,11 @@ public class SwipeMenuLayout extends ViewGroup {
     public void setCollapseDuration(int collapseDuration) {
         this.collapseDuration = collapseDuration;
     }
+
+    public void setChecked(boolean checked) {
+        mChecked = checked;
+        setBackgroundResource(checked? R.color.colorAccent : android.R.color.transparent);
+    }
+
 }
 

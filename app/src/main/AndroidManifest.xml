@@ -12,7 +12,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".customwidget.customdialog.CustomDialogAct"></activity>
+        <activity android:name=".recyclerviewchecked.activity.RecycleVeiwCheckedParentsAct" />
+        <activity android:name=".recyclerviewchecked.activity.SingleChoiceHeadFootActivity"></activity>
+        <activity android:name=".recyclerviewchecked.activity.MultipleChoiceActivity" />
+        <activity android:name=".recyclerviewchecked.activity.BgSingleChoiceActivity" />
+        <activity android:name=".recyclerviewchecked.activity.BgMultipleChoiceActivity" />
+        <activity android:name=".recyclerviewchecked.activity.MultipleChoiceHeadFootActivity" />
+        <activity android:name=".recyclerviewchecked.activity.SingleChoiceActivity" />
+        <activity android:name=".customwidget.customdialog.CustomDialogAct" />
         <activity android:name=".layoutdemo.ConstraintLayoutAct" />
         <activity android:name=".recycleviewdemo.RecycleViewDeleteAct" />
         <activity android:name=".bottomnavigations.HelloWorld" />
@@ -26,9 +33,7 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-
-        <!--    静态广播注册-->
+        </activity> <!-- 静态广播注册 -->
         <receiver
             android:name=".broadcastreceiver.MyStaticBroadcastReceiver"
             android:enabled="true"

@@ -82,6 +82,10 @@ public class MainActivity extends Activity {
                         intents.putExtra("sele","动态广播");
                         sendBroadcast(intents);
                         break;
+                    case 6:
+                        ARouter.getInstance().build(ArouterConstants.RECYCLEVIEW_CHECKED_PARENT).
+                                navigation();
+                        break;
                 }
 //                Toast.makeText(MainActivity.this, result, Toast.LENGTH_SHORT).show();
             }
@@ -95,6 +99,7 @@ public class MainActivity extends Activity {
         list.add(new User(R.drawable.actor,"自定义Dialog",""));
         list.add(new User(R.drawable.actor,"静态广播",""));
         list.add(new User(R.drawable.actor,"动态广播",""));
+        list.add(new User(R.drawable.actor,"recycleView 单选、多选",""));
     }
 
     //静态广播点击

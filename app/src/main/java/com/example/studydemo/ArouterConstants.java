@@ -7,5 +7,6 @@ public class ArouterConstants {
     public static final String VIEWPAGE_AND_RADIOBUTTON = "/viewPageAndRadioButton/viewPageAndRadioButton";
     public static final String RECYCLEVIEW_DETETEDEMO = "/recycleViewDemoAct/recycleViewDemoAct";
     public static final String CUSTOMDIALOT_ACT = "/customDialogAct/customDialogAct";
+    public static final String RECYCLEVIEW_CHECKED_PARENT = "/recycleveiwCheckedParents/recycleveiwCheckedParents";
 
 }

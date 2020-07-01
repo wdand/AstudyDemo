@@ -54,6 +54,17 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="完全自定义"/>
+    <Button
+        android:id="@+id/btn_10"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="底部选择图片dialog"/>
 
-
+    <ImageView
+        android:id="@+id/camera_dis"
+        android:layout_width="wrap_content"
+        android:src="@mipmap/ic_launcher"
+        android:layout_gravity="center"
+        android:layout_height="wrap_content">
+    </ImageView>
 </LinearLayout>

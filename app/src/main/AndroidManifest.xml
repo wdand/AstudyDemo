@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.studydemo">
-
+    <!--拍照-->
+    <uses-permission android:name="android.permission.CAMERA" />
+    <!--读写-->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.PERMISSIONS_STORAGE"/>
+    <!-- 网络-->
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-
-    <!-- if you want to load images from a file OR from the internet -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /> <!-- if you want to load images from a file OR from the internet -->
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -14,12 +18,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".banner.BannerAct"/>
-        <activity android:name=".banner.ui.ConstraintLayoutBannerActivity"/>
-        <activity android:name=".banner.ui.Vp2FragmentRecyclerviewActivity"/>
-        <activity android:name=".banner.ui.RecyclerViewBannerActivity"/>
-        <activity android:name=".banner.ui.VideoActivity"/>
-        <activity android:name=".banner.ui.TVActivity"/>
+
+        <activity android:name=".banner.BannerAct" />
+        <activity android:name=".banner.ui.ConstraintLayoutBannerActivity" />
+        <activity android:name=".banner.ui.Vp2FragmentRecyclerviewActivity" />
+        <activity android:name=".banner.ui.RecyclerViewBannerActivity" />
+        <activity android:name=".banner.ui.VideoActivity" />
+        <activity android:name=".banner.ui.TVActivity" />
         <activity android:name=".recyclerviewchecked.activity.RecycleVeiwCheckedParentsAct" />
         <activity android:name=".recyclerviewchecked.activity.SingleChoiceHeadFootActivity" />
         <activity android:name=".recyclerviewchecked.activity.MultipleChoiceActivity" />
@@ -52,6 +57,14 @@
                 <action android:name="weidong" />
             </intent-filter>
         </receiver>
+        <provider
+            android:authorities="com.example.lenovo.cameraalbumtest.fileprovider"
+            android:name="androidx.core.content.FileProvider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths"></meta-data>
+        </provider>
     </application>
 
 </manifest>

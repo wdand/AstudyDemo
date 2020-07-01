@@ -18,6 +18,7 @@ import android.widget.Toast;
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.example.studydemo.adapter.UserAdapter;
+import com.example.studydemo.banner.BannerAct;
 import com.example.studydemo.broadcastreceiver.MyStaticBroadcastReceiver;
 import com.example.studydemo.datas.User;
 import com.example.studydemo.recycleviewdemo.RecycleViewDeleteAct;
@@ -86,6 +87,10 @@ public class MainActivity extends Activity {
                         ARouter.getInstance().build(ArouterConstants.RECYCLEVIEW_CHECKED_PARENT).
                                 navigation();
                         break;
+                    case 7:
+                        Intent intentss = new Intent(MainActivity.this, BannerAct.class) ;
+                        startActivity(intentss);
+                        break;
                 }
 //                Toast.makeText(MainActivity.this, result, Toast.LENGTH_SHORT).show();
             }
@@ -100,6 +105,7 @@ public class MainActivity extends Activity {
         list.add(new User(R.drawable.actor,"静态广播",""));
         list.add(new User(R.drawable.actor,"动态广播",""));
         list.add(new User(R.drawable.actor,"recycleView 单选、多选",""));
+        list.add(new User(R.drawable.actor,"轮播Banner",""));
     }
 
     //静态广播点击

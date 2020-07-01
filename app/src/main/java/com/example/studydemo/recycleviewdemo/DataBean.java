@@ -1,13 +1,14 @@
 package com.example.studydemo.recycleviewdemo;
 
 public class DataBean {
+
     public DataBean(String name, String content, String imgId) {
         this.name = name;
         this.content = content;
         this.imgUrl = imgId;
     }
 
-    private String name;
+    public String name;
     private String content;
     private String imgUrl;
 

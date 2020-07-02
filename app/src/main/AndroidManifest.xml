@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.studydemo">
-    <!--拍照-->
-    <uses-permission android:name="android.permission.CAMERA" />
-    <!--读写-->
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.PERMISSIONS_STORAGE"/>
-    <!-- 网络-->
+    <!-- 拍照 -->
+    <uses-permission android:name="android.permission.CAMERA" /> <!-- 读写 -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.PERMISSIONS_STORAGE" /> <!-- 网络 -->
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /> <!-- if you want to load images from a file OR from the internet -->
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
@@ -18,7 +16,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
+        <activity android:name=".MenuActivity"
+            android:theme="@style/MyBottomDialog"/>
         <activity android:name=".banner.BannerAct" />
         <activity android:name=".banner.ui.ConstraintLayoutBannerActivity" />
         <activity android:name=".banner.ui.Vp2FragmentRecyclerviewActivity" />
@@ -57,13 +56,15 @@
                 <action android:name="weidong" />
             </intent-filter>
         </receiver>
+
         <provider
-            android:authorities="com.example.lenovo.cameraalbumtest.fileprovider"
             android:name="androidx.core.content.FileProvider"
+            android:authorities="com.example.lenovo.cameraalbumtest.fileprovider"
             android:exported="false"
             android:grantUriPermissions="true">
-            <meta-data android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/file_paths"></meta-data>
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
         </provider>
     </application>
 

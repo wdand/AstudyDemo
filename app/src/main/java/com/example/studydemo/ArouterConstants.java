@@ -8,5 +8,6 @@ public class ArouterConstants {
     public static final String RECYCLEVIEW_DETETEDEMO = "/recycleViewDemoAct/recycleViewDemoAct";
     public static final String CUSTOMDIALOT_ACT = "/customDialogAct/customDialogAct";
     public static final String RECYCLEVIEW_CHECKED_PARENT = "/recycleveiwCheckedParents/recycleveiwCheckedParents";
+    public static final String MENU_ACT = "/menuAct/menuAct";
 
 }

@@ -91,6 +91,9 @@ public class MainActivity extends Activity {
                         Intent intentss = new Intent(MainActivity.this, BannerAct.class) ;
                         startActivity(intentss);
                         break;
+                    case 8:
+                        ARouter.getInstance().build(ArouterConstants.MENU_ACT).navigation();
+                        break;
                 }
 //                Toast.makeText(MainActivity.this, result, Toast.LENGTH_SHORT).show();
             }
@@ -106,6 +109,7 @@ public class MainActivity extends Activity {
         list.add(new User(R.drawable.actor,"动态广播",""));
         list.add(new User(R.drawable.actor,"recycleView 单选、多选",""));
         list.add(new User(R.drawable.actor,"轮播Banner",""));
+        list.add(new User(R.drawable.actor,"MenuActivity",""));
     }
 
     //静态广播点击

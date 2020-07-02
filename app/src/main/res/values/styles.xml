@@ -47,7 +47,7 @@
         <!--阴影  -->
         <item name="android:windowIsTranslucent">false</item><!--半透明-->
         <!-- 点外边可以消失  -->
-        <item name="android:windowCloseOnTouchOutside">false</item>
+        <item name="android:windowCloseOnTouchOutside">true</item>
     </style>
 
     <style name="ActionSheetDialogStyle" parent="@android:style/Theme.Dialog">

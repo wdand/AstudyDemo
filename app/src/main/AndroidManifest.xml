@@ -16,8 +16,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MenuActivity"
-            android:theme="@style/MyBottomDialog"/>
+        <activity android:name=".addressselector.AddressSelectActivity"></activity>
+        <activity
+            android:name=".MenuActivity"
+            android:theme="@style/MyBottomDialog" />
         <activity android:name=".banner.BannerAct" />
         <activity android:name=".banner.ui.ConstraintLayoutBannerActivity" />
         <activity android:name=".banner.ui.Vp2FragmentRecyclerviewActivity" />

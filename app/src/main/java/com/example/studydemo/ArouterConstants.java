@@ -9,5 +9,5 @@ public class ArouterConstants {
     public static final String CUSTOMDIALOT_ACT = "/customDialogAct/customDialogAct";
     public static final String RECYCLEVIEW_CHECKED_PARENT = "/recycleveiwCheckedParents/recycleveiwCheckedParents";
     public static final String MENU_ACT = "/menuAct/menuAct";
-
+    public static final String ADDRESS_SELECT_ACT = "/addressSelectAct/addressSelectAct";
 }

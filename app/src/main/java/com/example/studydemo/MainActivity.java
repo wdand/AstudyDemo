@@ -94,6 +94,9 @@ public class MainActivity extends Activity {
                     case 8:
                         ARouter.getInstance().build(ArouterConstants.MENU_ACT).navigation();
                         break;
+                    case 9:
+                        ARouter.getInstance().build(ArouterConstants.ADDRESS_SELECT_ACT).navigation();
+                        break;
                 }
 //                Toast.makeText(MainActivity.this, result, Toast.LENGTH_SHORT).show();
             }
@@ -110,6 +113,7 @@ public class MainActivity extends Activity {
         list.add(new User(R.drawable.actor,"recycleView 单选、多选",""));
         list.add(new User(R.drawable.actor,"轮播Banner",""));
         list.add(new User(R.drawable.actor,"MenuActivity",""));
+        list.add(new User(R.drawable.actor,"地址选择Activity",""));
     }
 
     //静态广播点击

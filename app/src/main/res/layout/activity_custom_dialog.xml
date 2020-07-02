@@ -59,6 +59,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="底部选择图片dialog"/>
+    <Button
+        android:id="@+id/btn_11"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="底部菜单"/>
 
     <ImageView
         android:id="@+id/camera_dis"

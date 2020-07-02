@@ -32,6 +32,7 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
+import com.alibaba.android.arouter.launcher.ARouter;
 import com.example.studydemo.ArouterConstants;
 import com.example.studydemo.R;
 
@@ -53,6 +54,7 @@ public class CustomDialogAct extends Activity implements View.OnClickListener, M
     private Button btn8;
     private Button btn9;
     private Button btn10;
+    private Button btn11;
     private ImageView imageView;
 
     private MyDialog myDialog;
@@ -83,6 +85,8 @@ public class CustomDialogAct extends Activity implements View.OnClickListener, M
         btn9 = (Button) findViewById(R.id.btn_9);
         btn10 = (Button) findViewById(R.id.btn_10);
         btn10.setOnClickListener(this);
+        btn11 = (Button) findViewById(R.id.btn_11);
+        btn11.setOnClickListener(this);
         imageView = findViewById(R.id.camera_dis);
         findViewById(R.id.back_button).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -185,6 +189,9 @@ public class CustomDialogAct extends Activity implements View.OnClickListener, M
                     }
 
                 }.show();
+                break;
+            case R.id.btn_11:
+                ARouter.getInstance().build(ArouterConstants.MENU_ACT).navigation();
                 break;
         }
     }

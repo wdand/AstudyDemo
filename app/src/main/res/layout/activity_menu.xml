@@ -4,46 +4,70 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="@drawable/circle_shape"
+    android:orientation="vertical"
     tools:context=".MenuActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:src="@drawable/actor"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="20dp">
+        </de.hdodenhof.circleimageview.CircleImageView>
+        <ImageView
+            android:id="@+id/close_menu_avt"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:padding="15dp"
+            android:src="@drawable/close"
+            android:layout_alignParentRight="true">
+
+        </ImageView>
+    </RelativeLayout>
+
     <TextView
         android:layout_width="match_parent"
-        android:gravity="center"
         android:layout_height="wrap_content"
-        android:text="拍照"
-        android:textSize="20sp"
-        android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
-        android:textColor="#1685ff"/>
+        android:layout_centerVertical="true"
+        android:gravity="center"
+        android:text="拍照"
+        android:textColor="#1685ff"
+        android:textSize="20sp" />
+
     <TextView
         android:layout_width="match_parent"
-        android:gravity="center"
         android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
         android:layout_marginTop="20dp"
+        android:gravity="center"
         android:text="拍照"
-        android:textSize="20sp"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"
-        android:textColor="#1685ff"/>
+        android:textColor="#1685ff"
+        android:textSize="20sp" />
+
     <TextView
         android:layout_width="match_parent"
-        android:gravity="center"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="拍照"
-        android:textSize="20sp"
-        android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
-        android:textColor="#1685ff"/>
+        android:layout_centerVertical="true"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:text="拍照"
+        android:textColor="#1685ff"
+        android:textSize="20sp" />
+
     <TextView
         android:layout_width="match_parent"
-        android:gravity="center"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="拍照"
-        android:textSize="20sp"
-        android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
-        android:textColor="#1685ff"/>
+        android:layout_centerVertical="true"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:text="拍照"
+        android:textColor="#1685ff"
+        android:textSize="20sp" />
 </LinearLayout>

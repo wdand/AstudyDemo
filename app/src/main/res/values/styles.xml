@@ -7,11 +7,19 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
         <item name="windowNoTitle">true</item>
-
     </style>
     <!-- 自定义radioButton样式-->
     <style name="Custom" />
 
+    <style name="MenuActivityTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+
+    </style>
     <style name="Custom.TabRadioButton">
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_weight">1</item>
@@ -37,7 +45,7 @@
         <item name="android:backgroundDimEnabled">false</item>
     </style>
 
-    <style name="MyBottomDialog" parent="@android:style/Theme.NoTitleBar.Fullscreen">
+    <style name="MyBottomDialog" parent="MenuActivityTheme">
         <!-- 是否有边框 -->
         <item name="android:windowFrame">@null</item>
         <!--是否在悬浮Activity之上  -->

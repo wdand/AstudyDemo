@@ -7,6 +7,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Gravity;
@@ -14,6 +15,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
@@ -34,6 +36,7 @@ import java.util.List;
 @Route(path = ArouterConstants.MAIN_ACT)
 public class MainActivity extends Activity {
     ListView listView;
+    DynamicReceiver dynamicReceiver = new DynamicReceiver();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,10 +44,14 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
         IntentFilter filter = new IntentFilter();
         filter.addAction("DynamicReceiver");
-        DynamicReceiver dynamicReceiver = new DynamicReceiver();
         //注册广播接收
         registerReceiver(dynamicReceiver, filter);
 
+        TextView textView = findViewById(R.id.save_data);
+        SharedPreferences sp = getSharedPreferences("data", MODE_PRIVATE);
+        //第二个参数为缺省值，如果不存在该key，返回缺省值
+        String name = sp.getString("name", "111");
+        textView.setText(name);
         List<User> list = new ArrayList<>();
         ARouter.init(this.getApplication());
         initData(list);
@@ -101,6 +108,9 @@ public class MainActivity extends Activity {
                     case 10:
                         daoxu("hello world");
                         break;
+                    case 11:
+                        saveData("weidong");
+                        break;
                 }
 //                Toast.makeText(MainActivity.this, result, Toast.LENGTH_SHORT).show();
             }
@@ -113,10 +123,10 @@ public class MainActivity extends Activity {
     private void daoxu(String s) {
         char[] chars = s.toCharArray();
         String str = "";
-        for (int i = chars.length-1; i >= 0; i--) {
+        for (int i = chars.length - 1; i >= 0; i--) {
             str = str + chars[i];
         }
-        Log.e("daoxu", "daoxu: ................"+str );
+        Log.e("daoxu", "daoxu: ................" + str);
     }
 
     private void initData(List<User> list) {
@@ -131,11 +141,21 @@ public class MainActivity extends Activity {
         list.add(new User(R.drawable.actor, "MenuActivity", ""));
         list.add(new User(R.drawable.actor, "地址选择Activity", ""));
         list.add(new User(R.drawable.actor, "daoxu", ""));
+        list.add(new User(R.drawable.actor, "savaData", ""));
+
+    }
+
+    private void saveData(String info) {
+        SharedPreferences sp = getSharedPreferences("data", MODE_PRIVATE);
+        SharedPreferences.Editor editor = sp.edit();   //获取编辑器
+        editor.putString("name", info); //存入String型数据
+        editor.putInt("age", 18);         //存入Int类型数据
+        editor.commit();                //提交修改，否则不生效
     }
 
     //静态广播点击
     public void sendStatic() {
-        Intent intent = new Intent();
+        Intent intent = new Intent(MainActivity.this,MyStaticBroadcastReceiver.class);//显示指定组件名
         intent.setAction("weidong");
         intent.putExtra("info", "panhouye");
         sendBroadcast(intent);
@@ -152,11 +172,10 @@ public class MainActivity extends Activity {
         }
     }
 
-
     @Override
     protected void onDestroy() {
         super.onDestroy();
         //注销静态广播
-        unregisterReceiver(new MyStaticBroadcastReceiver());
+        unregisterReceiver(dynamicReceiver);
     }
 }

@@ -8,6 +8,7 @@ import android.widget.Toast;
 public class MyStaticBroadcastReceiver extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
-        Toast.makeText(context, "静态广播", Toast.LENGTH_SHORT).show();
+        String s = intent.getStringExtra("info");
+        Toast.makeText(context, s, Toast.LENGTH_SHORT).show();
     }
 }

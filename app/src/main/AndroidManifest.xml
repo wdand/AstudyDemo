@@ -47,13 +47,13 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity> <!-- 静态广播注册 -->
+        </activity>
+        <!-- 静态广播注册 -->
         <receiver
             android:name=".broadcastreceiver.MyStaticBroadcastReceiver"
             android:enabled="true"
             android:exported="true">
             <intent-filter>
-
                 <!-- 自定义Action -->
                 <action android:name="weidong" />
             </intent-filter>

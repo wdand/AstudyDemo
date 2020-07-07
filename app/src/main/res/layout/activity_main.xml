@@ -7,6 +7,12 @@
     android:background="#ffffff"
     tools:context=".MainActivity">
 
+   <TextView
+       android:id="@+id/save_data"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content">
+
+   </TextView>
    <ListView
        android:id="@+id/main_listView"
        android:layout_width="match_parent"

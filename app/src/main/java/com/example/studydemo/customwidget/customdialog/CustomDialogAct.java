@@ -311,7 +311,11 @@ public class CustomDialogAct extends Activity implements View.OnClickListener, M
                 if (isChecked) {
                     choices.add(which);
                 } else {
-                    choices.remove(which);
+                    if (choices.size() > which) {
+                        choices.remove(which);
+                    } else {
+                        choices.remove(choices.size()-1);
+                    }
                 }
             }
         });

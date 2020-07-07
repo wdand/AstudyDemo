@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.studydemo.R;
 import com.example.studydemo.recyclerviewchecked.bean.Person;
 import com.example.studydemo.recyclerviewchecked.view.ChoiceItemLayout;
+import com.example.studydemo.recycleviewdemo.SwipeMenuLayout;
 
 import java.util.List;
 
@@ -33,7 +34,7 @@ public class BgMultipleChoiceRecyAdapter extends RecyclerView.Adapter {
     public void onBindViewHolder(RecyclerView.ViewHolder viewHolder, final int position) {
         MyHolder holder = (MyHolder) viewHolder;
         Person person = list.get(position);
-        ChoiceItemLayout layout = (ChoiceItemLayout) holder.itemView;
+        SwipeMenuLayout layout = (SwipeMenuLayout) holder.itemView;
         layout.setChecked(person.isChecked());
 
         holder.tv1.setText("姓名：" + person.getName());

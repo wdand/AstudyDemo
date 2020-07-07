@@ -16,6 +16,7 @@ import com.example.studydemo.R;
 import com.example.studydemo.recyclerviewchecked.adapter.BgMultipleChoiceRecyAdapter;
 import com.example.studydemo.recyclerviewchecked.bean.Person;
 import com.example.studydemo.recyclerviewchecked.view.ChoiceItemLayout;
+import com.example.studydemo.recycleviewdemo.SwipeMenuLayout;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -56,7 +57,7 @@ public class BgMultipleChoiceActivity extends AppCompatActivity {
                 Log.d(TAG, "position=" + position);
 
                 BgMultipleChoiceRecyAdapter.MyHolder holder = (BgMultipleChoiceRecyAdapter.MyHolder) recyclerView.getChildViewHolder(view);
-                ChoiceItemLayout itemView = (ChoiceItemLayout) holder.itemView;
+                SwipeMenuLayout itemView = (SwipeMenuLayout) holder.itemView;
                 //先改数据，再改变背景色
                 Person person = list.get(position);
                 person.setChecked(!person.isChecked());

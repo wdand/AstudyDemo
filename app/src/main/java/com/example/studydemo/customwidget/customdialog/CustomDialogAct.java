@@ -311,11 +311,12 @@ public class CustomDialogAct extends Activity implements View.OnClickListener, M
                 if (isChecked) {
                     choices.add(which);
                 } else {
-                    if (choices.size() > which) {
+                    try{
                         choices.remove(which);
-                    } else {
-                        choices.remove(choices.size()-1);
+                    }catch(IndexOutOfBoundsException e){
+                        System.out.println("Exception thrown  :" + e);
                     }
+                    System.out.println("Out of the block");
                 }
             }
         });

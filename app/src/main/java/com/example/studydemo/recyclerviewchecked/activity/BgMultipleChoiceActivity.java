@@ -30,6 +30,7 @@ public class BgMultipleChoiceActivity extends AppCompatActivity {
     private LinearLayoutManager layoutManager;
     private Button btn;
     private BgMultipleChoiceRecyAdapter adapter;
+    private boolean chooseAll = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,6 +80,25 @@ public class BgMultipleChoiceActivity extends AppCompatActivity {
                 }
                 Log.d(TAG, "sb=" + sb.toString());
                 Toast.makeText(BgMultipleChoiceActivity.this, sb.toString(), Toast.LENGTH_SHORT).show();
+            }
+        });
+        findViewById(R.id.chooseAll).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (chooseAll) {
+                    for (int i = 0; i < list.size(); i++) {
+                        Person person = list.get(i);
+                        person.setChecked(false);
+                        chooseAll = false;
+                    }
+                } else {
+                    for (int i = 0; i < list.size(); i++) {
+                        Person person = list.get(i);
+                        person.setChecked(true);
+                        chooseAll = true;
+                    }
+                }
+                adapter.notifyDataSetChanged();
             }
         });
     }

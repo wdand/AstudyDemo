@@ -8,6 +8,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.AdapterView;
@@ -42,13 +43,13 @@ public class MainActivity extends Activity {
         filter.addAction("DynamicReceiver");
         DynamicReceiver dynamicReceiver = new DynamicReceiver();
         //注册广播接收
-        registerReceiver(dynamicReceiver,filter);
+        registerReceiver(dynamicReceiver, filter);
 
         List<User> list = new ArrayList<>();
         ARouter.init(this.getApplication());
         initData(list);
         listView = findViewById(R.id.main_listView);
-        UserAdapter adapter = new UserAdapter(MainActivity.this,list);
+        UserAdapter adapter = new UserAdapter(MainActivity.this, list);
         listView.setAdapter(adapter);
         //为列表视图中选中的项添加响应事件
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -80,7 +81,7 @@ public class MainActivity extends Activity {
                     case 5:
                         Intent intents = new Intent();
                         intents.setAction("DynamicReceiver");
-                        intents.putExtra("sele","动态广播");
+                        intents.putExtra("sele", "动态广播");
                         sendBroadcast(intents);
                         break;
                     case 6:
@@ -88,7 +89,7 @@ public class MainActivity extends Activity {
                                 navigation();
                         break;
                     case 7:
-                        Intent intentss = new Intent(MainActivity.this, BannerAct.class) ;
+                        Intent intentss = new Intent(MainActivity.this, BannerAct.class);
                         startActivity(intentss);
                         break;
                     case 8:
@@ -97,30 +98,46 @@ public class MainActivity extends Activity {
                     case 9:
                         ARouter.getInstance().build(ArouterConstants.ADDRESS_SELECT_ACT).navigation();
                         break;
+                    case 10:
+                        daoxu("hello world");
+                        break;
                 }
 //                Toast.makeText(MainActivity.this, result, Toast.LENGTH_SHORT).show();
             }
+
+
         });
 
     }
-    private void initData ( List<User> list){
-        list.add(new User(R.drawable.actor,"3种底部导航栏实现方式",""));
-        list.add(new User(R.drawable.actor,"EventBus未完成",""));
-        list.add(new User(R.drawable.actor,"带侧滑菜单的Recycleview",""));
-        list.add(new User(R.drawable.actor,"自定义Dialog",""));
-        list.add(new User(R.drawable.actor,"静态广播",""));
-        list.add(new User(R.drawable.actor,"动态广播",""));
-        list.add(new User(R.drawable.actor,"recycleView 单选、多选",""));
-        list.add(new User(R.drawable.actor,"轮播Banner",""));
-        list.add(new User(R.drawable.actor,"MenuActivity",""));
-        list.add(new User(R.drawable.actor,"地址选择Activity",""));
+
+    private void daoxu(String s) {
+        char[] chars = s.toCharArray();
+        String str = "";
+        for (int i = chars.length-1; i >= 0; i--) {
+            str = str + chars[i];
+        }
+        Log.e("daoxu", "daoxu: ................"+str );
+    }
+
+    private void initData(List<User> list) {
+        list.add(new User(R.drawable.actor, "3种底部导航栏实现方式", ""));
+        list.add(new User(R.drawable.actor, "EventBus未完成", ""));
+        list.add(new User(R.drawable.actor, "带侧滑菜单的Recycleview", ""));
+        list.add(new User(R.drawable.actor, "自定义Dialog", ""));
+        list.add(new User(R.drawable.actor, "静态广播", ""));
+        list.add(new User(R.drawable.actor, "动态广播", ""));
+        list.add(new User(R.drawable.actor, "recycleView 单选、多选", ""));
+        list.add(new User(R.drawable.actor, "轮播Banner", ""));
+        list.add(new User(R.drawable.actor, "MenuActivity", ""));
+        list.add(new User(R.drawable.actor, "地址选择Activity", ""));
+        list.add(new User(R.drawable.actor, "daoxu", ""));
     }
 
     //静态广播点击
-    public void sendStatic(){
+    public void sendStatic() {
         Intent intent = new Intent();
         intent.setAction("weidong");
-        intent.putExtra("info","panhouye");
+        intent.putExtra("info", "panhouye");
         sendBroadcast(intent);
     }
 
@@ -129,8 +146,8 @@ public class MainActivity extends Activity {
         @Override
         public void onReceive(Context context, Intent intent) {
             //通过土司验证接收到广播
-            Toast t = Toast.makeText(context,"动态广播："+ intent.getStringExtra("sele"), Toast.LENGTH_SHORT);
-            t.setGravity(Gravity.TOP,0,0);//方便录屏，将土司设置在屏幕顶端
+            Toast t = Toast.makeText(context, "动态广播：" + intent.getStringExtra("sele"), Toast.LENGTH_SHORT);
+            t.setGravity(Gravity.TOP, 0, 0);//方便录屏，将土司设置在屏幕顶端
             t.show();
         }
     }

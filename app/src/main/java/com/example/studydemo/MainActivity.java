@@ -33,6 +33,8 @@ import org.greenrobot.eventbus.ThreadMode;
 import java.util.ArrayList;
 import java.util.List;
 
+import cn.jpush.android.api.JPushInterface;
+
 @Route(path = ArouterConstants.MAIN_ACT)
 public class MainActivity extends Activity {
     ListView listView;
@@ -42,6 +44,9 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        String rid = JPushInterface.getRegistrationID(getApplicationContext());
+        Log.d("rid", "onCreate: "+rid);
+
         IntentFilter filter = new IntentFilter();
         filter.addAction("DynamicReceiver");
         //注册广播接收

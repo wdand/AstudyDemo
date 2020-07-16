@@ -10,6 +10,7 @@ import android.annotation.TargetApi;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.ActivityNotFoundException;
 import android.content.ContentUris;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -208,7 +209,11 @@ public class CustomDialogAct extends Activity implements View.OnClickListener, M
         Intent intent = new Intent("android.media.action.IMAGE_CAPTURE");
         // 指定图片的输出地址为imageUri
         intent.putExtra(MediaStore.EXTRA_OUTPUT, imageUri);
-        startActivityForResult(intent, CAMERA_RESULT);
+        try {
+            startActivityForResult(intent, CAMERA_RESULT);
+        } catch (ActivityNotFoundException e) {
+            Toast.makeText(this, "请检查您的设备是否有摄像头", Toast.LENGTH_SHORT).show();
+        }
     }
 
     /**
@@ -311,9 +316,9 @@ public class CustomDialogAct extends Activity implements View.OnClickListener, M
                 if (isChecked) {
                     choices.add(which);
                 } else {
-                    try{
+                    try {
                         choices.remove(which);
-                    }catch(IndexOutOfBoundsException e){
+                    } catch (IndexOutOfBoundsException e) {
                         System.out.println("Exception thrown  :" + e);
                     }
                     System.out.println("Out of the block");

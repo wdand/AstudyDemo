@@ -118,8 +118,9 @@ public class MainActivity extends Activity {
                         saveData("weidong");
                         break;
                     case 12:
-                        Intent intentother = new Intent(MainActivity.this, HomeActivity.class);
-                        startActivity(intentother);
+
+//                        Intent intentother = new Intent(MainActivity.this, HomeActivity.class);
+//                        startActivity(intentother);
                         break;
                 }
 //                Toast.makeText(MainActivity.this, result, Toast.LENGTH_SHORT).show();

@@ -20,6 +20,7 @@ import android.widget.Toast;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.android.arouter.launcher.ARouter;
+import com.example.homepage.HomeActivity;
 import com.example.studydemo.adapter.UserAdapter;
 import com.example.studydemo.banner.BannerAct;
 import com.example.studydemo.broadcastreceiver.MyStaticBroadcastReceiver;
@@ -45,7 +46,7 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         String rid = JPushInterface.getRegistrationID(getApplicationContext());
-        Log.d("rid", "onCreate: "+rid);
+        Log.d("rid", "onCreate: " + rid);
 
         IntentFilter filter = new IntentFilter();
         filter.addAction("DynamicReceiver");
@@ -116,6 +117,10 @@ public class MainActivity extends Activity {
                     case 11:
                         saveData("weidong");
                         break;
+                    case 12:
+                        Intent intentother = new Intent(MainActivity.this, HomeActivity.class);
+                        startActivity(intentother);
+                        break;
                 }
 //                Toast.makeText(MainActivity.this, result, Toast.LENGTH_SHORT).show();
             }
@@ -147,7 +152,7 @@ public class MainActivity extends Activity {
         list.add(new User(R.drawable.actor, "地址选择Activity", ""));
         list.add(new User(R.drawable.actor, "daoxu", ""));
         list.add(new User(R.drawable.actor, "savaData", ""));
-
+        list.add(new User(R.drawable.actor, "othorModel", ""));
     }
 
     private void saveData(String info) {
@@ -160,7 +165,7 @@ public class MainActivity extends Activity {
 
     //静态广播点击
     public void sendStatic() {
-        Intent intent = new Intent(MainActivity.this,MyStaticBroadcastReceiver.class);//显示指定组件名
+        Intent intent = new Intent(MainActivity.this, MyStaticBroadcastReceiver.class);//显示指定组件名
         intent.setAction("weidong");
         intent.putExtra("info", "panhouye");
         sendBroadcast(intent);

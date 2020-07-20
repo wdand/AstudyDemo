@@ -3,7 +3,15 @@
     package="com.example.homepage">
 
     <application>
-        <activity android:name=".HomeActivity"></activity>
+        <activity android:name=".HomeActivity" android:icon="@drawable/abc_vector_test">
+            <intent-filter>
+                <action android:name="android.intent.action.SecondActivity" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="text/plain" />
+            </intent-filter>
+        </activity>
     </application>
+
+
 
 </manifest>

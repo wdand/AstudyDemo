@@ -1,3 +1,5 @@
+include ':toasty'
+include ':common'
 include ':HomePage'
 rootProject.name='StudyDemo'
 include ':app'

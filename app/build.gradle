@@ -59,6 +59,7 @@ dependencies {
     implementation "androidx.constraintlayout:constraintlayout:2.0.0-beta7"
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     implementation project(path: ':HomePage')
+    implementation project(path: ':toasty')
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
@@ -83,4 +84,5 @@ dependencies {
 
     implementation 'cn.jiguang.sdk:jpush:3.6.6'  // 此处以JPush 3.6.6 版本为例。
     implementation 'cn.jiguang.sdk:jcore:2.3.8'  // 此处以JCore 2.3.8 版本为例。
+
 }

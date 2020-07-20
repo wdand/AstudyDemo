@@ -35,6 +35,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import cn.jpush.android.api.JPushInterface;
+import es.dmoral.toasty.Toasty;
 
 @Route(path = ArouterConstants.MAIN_ACT)
 public class MainActivity extends Activity {
@@ -121,6 +122,8 @@ public class MainActivity extends Activity {
 
 //                        Intent intentother = new Intent(MainActivity.this, HomeActivity.class);
 //                        startActivity(intentother);
+                        Toasty.error(MainActivity.this, "This is an error toast.", Toast.LENGTH_SHORT, true).show();
+
                         break;
                 }
 //                Toast.makeText(MainActivity.this, result, Toast.LENGTH_SHORT).show();

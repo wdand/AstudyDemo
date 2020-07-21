@@ -120,8 +120,8 @@ public class MainActivity extends Activity {
                         break;
                     case 12:
 
-//                        Intent intentother = new Intent(MainActivity.this, HomeActivity.class);
-//                        startActivity(intentother);
+                        Intent intentother = new Intent(MainActivity.this, HomeActivity.class);
+                        startActivity(intentother);
                         Toasty.error(MainActivity.this, "This is an error toast.", Toast.LENGTH_SHORT, true).show();
 
                         break;

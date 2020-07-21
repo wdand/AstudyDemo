@@ -6,11 +6,19 @@
     android:layout_height="match_parent"
     tools:context=".HomeActivity">
 
-    <TextView
+    <com.example.common.MyRedButton
         android:id="@+id/otherModelTest"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="64564554">
+        android:layout_width="100dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_height="100dp">
+    </com.example.common.MyRedButton>
 
-    </TextView>
+    <com.example.common.MyRedButton
+        android:id="@+id/otherModelTest1"
+        android:layout_width="100dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_height="100dp">
+    </com.example.common.MyRedButton>
 </LinearLayout>

@@ -3,6 +3,7 @@ package com.example.homepage;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
@@ -27,6 +28,8 @@ public class HomeActivity extends AppCompatActivity {
 //                finish();
 //            }
 //        });
-
+        for (int i= 0 ; i < 100 ; i++){
+            Log.d("treetest", "onCreate: 132");
+        }
     }
 }

@@ -12,6 +12,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
@@ -45,6 +46,7 @@ public class MainActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_SECURE, WindowManager.LayoutParams.FLAG_SECURE);
         setContentView(R.layout.activity_main);
         String rid = JPushInterface.getRegistrationID(getApplicationContext());
         Log.d("rid", "onCreate: " + rid);
@@ -141,6 +143,7 @@ public class MainActivity extends Activity {
             str = str + chars[i];
         }
         Log.e("daoxu", "daoxu: ................" + str);
+        Toast.makeText(this, str, Toast.LENGTH_SHORT).show();
     }
 
     private void initData(List<User> list) {

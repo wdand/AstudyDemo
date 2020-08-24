@@ -68,6 +68,8 @@
         <activity android:name=".bottomnavigations.ViewPageAndRadioGroupAct" />
         <activity android:name=".bottomnavigations.BottomNavigationViewAct" />
         <activity android:name=".bottomnavigations.BottomNavigationBarActivity" />
+        <activity android:name=".clipUserIcon.ClHeaderActivity" />
+        <activity android:name=".clipUserIcon.ClipHeaderActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

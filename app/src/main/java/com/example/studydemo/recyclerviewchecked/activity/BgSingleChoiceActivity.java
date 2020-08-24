@@ -54,15 +54,17 @@ public class BgSingleChoiceActivity extends AppCompatActivity {
             @Override
             public void onItemClick(View view, int position) {
                 Log.d(TAG, "position=" + position);
-
-                for (int i = 0; i < list.size(); i++) {
-                    if (i == position) {
-                        list.get(i).setChecked(true);
-                    } else {
-                        list.get(i).setChecked(false);
-                    }
+                if (view.getId() == R.id.tv3){
+                    Toast.makeText(BgSingleChoiceActivity.this, "舒服了", Toast.LENGTH_SHORT).show();
                 }
-                checkedPosition = position;
+//                for (int i = 0; i < list.size(); i++) {
+//                    if (i == position) {
+//                        list.get(i).setChecked(true);
+//                    } else {
+//                        list.get(i).setChecked(false);
+//                    }
+//                }
+//                checkedPosition = position;
                 adapter.notifyDataSetChanged();
             }
         });

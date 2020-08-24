@@ -83,6 +83,12 @@ public class BgSingleChoiceRecyAdapter extends RecyclerView.Adapter {
                 onItemClickListener.onItemClick(v, position);
             }
         });
+        holder.tv3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onItemClickListener.onItemClick(v, position);
+            }
+        });
     }
 
     @Override
@@ -95,6 +101,7 @@ public class BgSingleChoiceRecyAdapter extends RecyclerView.Adapter {
 
         public TextView tv1;
         public TextView tv2;
+        public TextView tv3;
         TextView view_del;
         TextView view_edit;
         TextView tv_top;
@@ -106,6 +113,7 @@ public class BgSingleChoiceRecyAdapter extends RecyclerView.Adapter {
             linearLayout = (LinearLayout) itemView.findViewById(R.id.parent_test);
             tv1 = (TextView) itemView.findViewById(R.id.tv1);
             tv2 = (TextView) itemView.findViewById(R.id.tv2);
+            tv3 = (TextView) itemView.findViewById(R.id.tv3);
             tv_top = (TextView) itemView.findViewById(R.id.item_tv_top_choose);
             view_del = (TextView) itemView.findViewById(R.id.item_tv_del_choose);
             view_edit = (TextView) itemView.findViewById(R.id.item_tv_edit_choose);

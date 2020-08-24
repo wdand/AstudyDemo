@@ -30,11 +30,12 @@ android {
         }
 
         manifestPlaceholders = [
-                JPUSH_PKGNAME : applicationId,
+                JPUSH_PKGNAME: applicationId,
                 JPUSH_APPKEY : "81ee344a9395ceb5e75df735", //JPush 上注册的包名对应的 Appkey.
-                JPUSH_CHANNEL : "developer-default", //暂时填写默认值即可.
+                JPUSH_CHANNEL: "developer-default", //暂时填写默认值即可.
         ]
     }
+
 
     buildTypes {
         release {
@@ -52,6 +53,13 @@ android {
     }
 
 }
+
+repositories {
+    google()
+    jcenter()
+    maven { url 'https://jitpack.io' }
+}
+
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
@@ -85,4 +93,9 @@ dependencies {
     implementation 'cn.jiguang.sdk:jpush:3.6.6'  // 此处以JPush 3.6.6 版本为例。
     implementation 'cn.jiguang.sdk:jcore:2.3.8'  // 此处以JCore 2.3.8 版本为例。
 
+    implementation 'androidx.appcompat:appcompat:1.0.0'
+
+    /*添加依赖*/
+    implementation 'com.github.yuzhiqiang1993:zxing:2.2.5'
+    implementation 'pub.devrel:easypermissions:3.0.0'
 }

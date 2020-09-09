@@ -57,14 +57,14 @@ public class BgSingleChoiceActivity extends AppCompatActivity {
                 if (view.getId() == R.id.tv3){
                     Toast.makeText(BgSingleChoiceActivity.this, "舒服了", Toast.LENGTH_SHORT).show();
                 }
-//                for (int i = 0; i < list.size(); i++) {
-//                    if (i == position) {
-//                        list.get(i).setChecked(true);
-//                    } else {
-//                        list.get(i).setChecked(false);
-//                    }
-//                }
-//                checkedPosition = position;
+                for (int i = 0; i < list.size(); i++) {
+                    if (i == position) {
+                        list.get(i).setChecked(true);
+                    } else {
+                        list.get(i).setChecked(false);
+                    }
+                }
+                checkedPosition = position;
                 adapter.notifyDataSetChanged();
             }
         });

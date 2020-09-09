@@ -44,7 +44,7 @@ import java.util.ArrayList;
 
 @Route(path = ArouterConstants.CUSTOMDIALOT_ACT)
 public class CustomDialogAct extends Activity implements View.OnClickListener, MyDialog.OnCenterItemClickListener {
-
+    private CommonDialog signDialog;
     private Button btn1;
     private Button btn2;
     private Button btn3;
@@ -129,7 +129,8 @@ public class CustomDialogAct extends Activity implements View.OnClickListener, M
                 DiyDialog2();
                 break;
             case R.id.btn_9:
-                myDialog.show();
+//                myDialog.show();
+                DiyDialog3();
                 break;
             case R.id.btn_10:
                 new Dialogchoosephoto(CustomDialogAct.this) {
@@ -458,20 +459,27 @@ public class CustomDialogAct extends Activity implements View.OnClickListener, M
     }
 
     /**
-     * 完全自定义dialog2
+     * 完全自定义dialog3
      */
-//    private void DiyDialog3() {
-//        MyDialog1 myDialog1 = new MyDialog1(MainActivity.this);
-//        myDialog1.setContentView(R.layout.dialog_2);
-//        Button s = (Button)myDialog1.findViewById(R.id.dialog_btn);
-//        s.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Toast.makeText(getApplicationContext(),"点击了",Toast.LENGTH_SHORT).show();
-//            }
-//        });
-//        myDialog1.show();
-//    }
+    private void DiyDialog3() {
+        signDialog = new CommonDialog(this);
+        signDialog.setTitle("我是自定义布局dialog");
+        signDialog.setMessage("牛逼");
+        signDialog.setYesOnclickListener("是", new CommonDialog.onYesOnclickListener() {
+            @Override
+            public void onYesClick() {
+                Toast.makeText(CustomDialogAct.this, "是", Toast.LENGTH_SHORT).show();
+                signDialog.dismiss();
+            }
+        });
+        signDialog.setNoOnclickListener("否", new CommonDialog.onNoOnclickListener() {
+            @Override
+            public void onNoClick() {
+                signDialog.dismiss();
+            }
+        });
+        signDialog.show();
+    }
     @Override
     public void OnCenterItemClick(MyDialog dialog, View view) {
         switch (view.getId()) {

@@ -4,6 +4,7 @@ package com.example.studydemo.recyclerviewchecked.adapter;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
@@ -48,6 +49,18 @@ public class BgMultipleChoiceRecyAdapter extends RecyclerView.Adapter {
                 }
             });
         }
+//        holder.linearLayout.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                onItemClickListener.onItemClick(v, position);
+//            }
+//        });
+        holder.linearLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onItemClickListener.onItemClick(v, position);
+            }
+        });
     }
 
     @Override
@@ -60,11 +73,13 @@ public class BgMultipleChoiceRecyAdapter extends RecyclerView.Adapter {
 
         public TextView tv1;
         public TextView tv2;
+        public LinearLayout linearLayout ;
 
         public MyHolder(View itemView) {
             super(itemView);
             tv1 = (TextView) itemView.findViewById(R.id.tv1);
             tv2 = (TextView) itemView.findViewById(R.id.tv2);
+            linearLayout = (LinearLayout) itemView.findViewById(R.id.parent_test);
         }
     }
 

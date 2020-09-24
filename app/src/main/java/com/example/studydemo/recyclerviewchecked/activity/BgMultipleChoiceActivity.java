@@ -56,14 +56,13 @@ public class BgMultipleChoiceActivity extends AppCompatActivity {
             @Override
             public void onItemClick(View view, int position) {
                 Log.d(TAG, "position=" + position);
-
-                BgMultipleChoiceRecyAdapter.MyHolder holder = (BgMultipleChoiceRecyAdapter.MyHolder) recyclerView.getChildViewHolder(view);
-                SwipeMenuLayout itemView = (SwipeMenuLayout) holder.itemView;
+//                BgMultipleChoiceRecyAdapter.MyHolder holder = (BgMultipleChoiceRecyAdapter.MyHolder) recyclerView.getChildViewHolder(view);
+//                SwipeMenuLayout itemView = (SwipeMenuLayout) holder.itemView;
                 //先改数据，再改变背景色
                 Person person = list.get(position);
                 person.setChecked(!person.isChecked());
-
-                itemView.setChecked(person.isChecked());
+//                itemView.setChecked(person.isChecked());
+                adapter.notifyDataSetChanged();
             }
         });
 

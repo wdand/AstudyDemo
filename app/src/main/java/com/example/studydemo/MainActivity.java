@@ -43,6 +43,7 @@ import com.example.studydemo.broadcastreceiver.MyStaticBroadcastReceiver;
 import com.example.studydemo.clipUserIcon.ClHeaderActivity;
 import com.example.studydemo.datas.User;
 import com.example.studydemo.recycleviewdemo.RecycleViewDeleteAct;
+import com.example.studydemo.utils.GetGPSUtil;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -63,6 +64,8 @@ public class MainActivity extends Activity {
     ImageView userIconMy;
     DynamicReceiver dynamicReceiver = new DynamicReceiver();
     private Uri changeHeadPicUri;
+    public static final String TAG = "MainActivity";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -149,6 +152,10 @@ public class MainActivity extends Activity {
                     case 13:
                         downloadImage("https://cdn.yizong.cn/2/2208/d1e8896e48e39f85688ebe9ea315f62b.jpg");
                         break;
+                    case 14:
+                        Intent loctionIntent = new Intent(MainActivity.this,LocationActivity.class);
+                        startActivity(loctionIntent);
+                        break;
                 }
 //                Toast.makeText(MainActivity.this, result, Toast.LENGTH_SHORT).show();
             }
@@ -183,6 +190,7 @@ public class MainActivity extends Activity {
         list.add(new User(R.drawable.actor, "savaData", ""));
         list.add(new User(R.drawable.actor, "othorModel", ""));
         list.add(new User(R.drawable.actor, "修改头像", ""));
+        list.add(new User(R.drawable.actor, "获取地理位置", ""));
     }
 
     public void downloadImage(String Url) {
@@ -283,6 +291,7 @@ public class MainActivity extends Activity {
         share_intent = Intent.createChooser(share_intent, "分享");
         startActivity(share_intent);
     }
+
     @Override
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -297,6 +306,7 @@ public class MainActivity extends Activity {
                 break;
         }
     }
+
     private void setPicToView(Intent picdata) {
 
         Uri uri = picdata.getData();

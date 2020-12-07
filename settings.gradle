@@ -1,3 +1,6 @@
+include ':demonet'
+include ':dmbase'
+include ':bkbase'
 include ':toasty'
 include ':common'
 include ':HomePage'

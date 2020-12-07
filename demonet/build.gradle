@@ -1,0 +1,58 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion 28
+
+
+    defaultConfig {
+        minSdkVersion 21
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles 'consumer-rules.pro'
+
+        compileOptions{
+            sourceCompatibility JavaVersion.VERSION_1_8
+            targetCompatibility JavaVersion.VERSION_1_8
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test:runner:1.2.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+
+    implementation  fileTree(include: ['*.jar'], dir: 'libs')
+    //生命周期管理
+    implementation  rootProject.ext.dependencies.rxlifecycle
+    implementation  rootProject.ext.dependencies.rxlifecycle_components
+    /*rxandroid*/
+    implementation  rootProject.ext.dependencies.rxandroid
+    /*rxjava2*/
+    implementation  rootProject.ext.dependencies.rxjava2
+    /*网络请求框架*/
+    implementation  rootProject.ext.dependencies.retrofit
+    implementation  rootProject.ext.dependencies.converter_gson
+    implementation  rootProject.ext.dependencies.adapter_rxjava2
+    implementation  rootProject.ext.dependencies.logging_interceptor
+
+
+    /*utilcode 常用工具类*/
+    implementation  rootProject.ext.dependencies.utilcode
+//    debugCompile 'com.readystatesoftware.chuck:library:1.1.0'
+//    releaseCompile 'com.readystatesoftware.chuck:library-no-op:1.1.0'
+}

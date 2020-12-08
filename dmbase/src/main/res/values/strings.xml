@@ -177,7 +177,7 @@
 
 
     <!--MyHub-->
-    <string name="my_profile">My Profile</string>
+    <string name="my_profile">https://dev-api.yizong.cn/</string>
     <string name="my_contacts">My Contacts</string>
     <string name="my_messages">My Messages</string>
     <string name="my_orders">My Orders</string>

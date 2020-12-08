@@ -176,7 +176,7 @@
 
 
     <!--MyHub-->
-    <string name="my_profile">My Profile</string>
+    <string name="my_profile">https://dev-api.yizong.cn/</string>
     <string name="my_contacts">My Contacts</string>
     <string name="my_messages">My Messages</string>
     <string name="my_orders">My Orders</string>
@@ -228,7 +228,6 @@
     <!--inspire new post  -->
     <string name="Writeacaption">Write a caption</string>
 
-    <string name="cndev">https://unokiwidev.yotach.net</string>
 
     <string name="title_ForAutoSaveDialog">AutoSave Data Hint</string>
     <string name="hint_ForAutoSaveDialog">You have an unsaved design.Do you want to continue designing or discard it?</string>

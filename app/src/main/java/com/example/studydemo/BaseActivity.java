@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 
+import com.bingkong.bkbase.ui.act.BaseView;
 import com.example.studydemo.clipUserIcon.LifeCycleListener;
 import com.youth.banner.util.LogUtils;
 
@@ -19,7 +20,7 @@ import butterknife.Unbinder;
 import pub.devrel.easypermissions.EasyPermissions;
 
 public abstract class BaseActivity extends Activity
-        implements EasyPermissions.PermissionCallbacks,BaseView{
+        implements EasyPermissions.PermissionCallbacks, BaseView {
 
     protected Context mContext;
     protected Unbinder unBinder;

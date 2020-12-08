@@ -111,7 +111,9 @@ public class AllDemoActivity extends Activity {
                                 navigation();
                         break;
                     case 1:
-                        EventBus.getDefault().post(new String("213"));
+//                        EventBus.getDefault().post(new String("213"));
+                        Intent intent213 = new Intent(AllDemoActivity.this, RetrofitRxJavaDemo.class);
+                        startActivity(intent213);
                         break;
                     case 2:
 //                        ARouter.getInstance().build(ArouterConstants.RECYCLEVIEW_DETETEDEMO).

@@ -177,7 +177,9 @@
 
 
     <!--MyHub-->
-    <string name="my_profile">http://192.168.2.252:18080/4000/4000/0/</string>//https://dev-api.yizong.cn/
+<!--    <string name="my_profile">http://192.168.2.252:18080/4000/4000/0/</string>//https://dev-api.yizong.cn/-->
+    <string name="my_profile">https://pub.yaofangwang.com/4000/4000/0/</string>//https://dev-api.yizong.cn/
+
     <string name="my_contacts">My Contacts</string>
     <string name="my_messages">My Messages</string>
     <string name="my_orders">My Orders</string>

@@ -38,7 +38,7 @@ public class RetrofitRxJavaDemo extends BaseFluxActivity<StoreDemo,ReqDemo> {
                 b.setText("123");
                 b.setVisibility(View.VISIBLE);
 //                actionsCreator().phoneLogin(RetrofitRxJavaDemo.this, "25933983648842026","e772481acd2c11e98b20fa163e7bddb6","18217433824");
-                actionsCreator().yfwLogin(RetrofitRxJavaDemo.this,"wulu","abc123");
+                actionsCreator().yfwLogin(RetrofitRxJavaDemo.this,"wulu","wulu888");
             }
         });
     }

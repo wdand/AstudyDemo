@@ -15,6 +15,7 @@ import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
+import com.bingkong.bkbase.base.BaseFluxFragment;
 import com.example.studydemo.bottomnavigations.BlankFragment;
 import com.example.studydemo.bottomnavigations.HelloWorld;
 import com.example.studydemo.home.HomeFragment;
@@ -24,7 +25,7 @@ import com.example.studydemo.shopcar.ShopCarFragment;
 @Route(path = ArouterConstants.MAIN_ACT)
 public class MainActivity extends AppCompatActivity {
     private RadioGroup mTabRadioGroup;
-    private SparseArray<Fragment> mFragmentSparseArray;
+    private SparseArray<BaseFluxFragment> mFragmentSparseArray;
     private static boolean isExit = false;
 
     @Override
@@ -43,10 +44,10 @@ public class MainActivity extends AppCompatActivity {
     private void initView() {
         mTabRadioGroup = findViewById(R.id.tabs_rg);
         mFragmentSparseArray = new SparseArray<>();
-        mFragmentSparseArray.append(R.id.today_tab, HomeFragment.newInstance("首页", "1456")); // 这里BlankFragment可以换成其他的 不一定要四个一样的 实际项目中基本不会用到四个一样的
-        mFragmentSparseArray.append(R.id.record_tab, BlankFragment.newInstance("订单"));
-        mFragmentSparseArray.append(R.id.contact_tab, ShopCarFragment.newInstance("购物车", "564"));
-        mFragmentSparseArray.append(R.id.settings_tab, BlankFragment.newInstance("我的"));
+        mFragmentSparseArray.append(R.id.today_tab, new HomeFragment()); // 这里BlankFragment可以换成其他的 不一定要四个一样的 实际项目中基本不会用到四个一样的
+        mFragmentSparseArray.append(R.id.record_tab, new HomeFragment());
+        mFragmentSparseArray.append(R.id.contact_tab, new HomeFragment());
+        mFragmentSparseArray.append(R.id.settings_tab, new HomeFragment());
         mTabRadioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {

@@ -43,6 +43,22 @@ android {
         }
     }
 
+//    signingConfigs {
+//        release {
+//            keyAlias 'keystore'
+//            keyPassword '123.asd'
+//            storeFile file('H:\\AndroidKeyStore\\forever.keystore')
+//            storePassword '123.asd'
+//        }
+//
+//        debug {
+//            keyAlias 'keystore'
+//            keyPassword '123.asd'
+//            storeFile file('H:\\AndroidKeyStore\\forever.keystore')
+//            storePassword '123.asd'
+//        }
+//    }
+
     compileOptions {
 
         sourceCompatibility JavaVersion.VERSION_1_8

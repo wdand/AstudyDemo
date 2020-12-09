@@ -12,5 +12,12 @@
         android:layout_gravity="center"
         android:text="请求示例"
         android:layout_height="wrap_content"/>
+    <Button
+        android:visibility="gone"
+        android:id="@+id/request_button2"
+        android:layout_width="wrap_content"
+        android:layout_gravity="center"
+        android:text="请求示例"
+        android:layout_height="wrap_content"/>
 
 </LinearLayout>

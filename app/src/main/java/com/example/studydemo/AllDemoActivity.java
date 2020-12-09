@@ -76,11 +76,11 @@ public class AllDemoActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getPersimmions();
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_SECURE, WindowManager.LayoutParams.FLAG_SECURE);
+//        getPersimmions();
+//        getWindow().setFlags(WindowManager.LayoutParams.FLAG_SECURE, WindowManager.LayoutParams.FLAG_SECURE);
         setContentView(R.layout.activity_all_demo);
-        String rid = JPushInterface.getRegistrationID(getApplicationContext());
-        Log.d("rid", "onCreate: " + rid);
+//        String rid = JPushInterface.getRegistrationID(getApplicationContext());
+//        Log.d("rid", "onCreate: " + rid);
 
         IntentFilter filter = new IntentFilter();
         filter.addAction("DynamicReceiver");

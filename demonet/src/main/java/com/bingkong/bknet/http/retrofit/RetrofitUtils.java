@@ -5,6 +5,7 @@ import android.content.Context;
 import android.util.Log;
 
 import com.blankj.utilcode.util.LogUtils;
+import com.blankj.utilcode.util.SPUtils;
 
 import java.io.IOException;
 import java.lang.annotation.Annotation;
@@ -91,17 +92,11 @@ public class RetrofitUtils {
                 .addInterceptor(new Interceptor() {
                     @Override
                     public Response intercept(Chain chain) throws IOException {
+                        String cookie= (String) SPUtils.getInstance().getString("yfwCookie","");
+
                         Request.Builder builder = chain.request().newBuilder();
-//                        builder.addHeader("platform", "1");
-                        if (null!= TokenManager.getInstance().getToken()&&
-                                !TokenManager.getInstance().getToken().isEmpty()) {
-//                            LogUtils.e("Authorization :"+TokenManager.getInstance().getToken());
-                            builder.addHeader("Authorization","Bearer "+TokenManager.getInstance().getToken());
-//                            builder.addHeader("returntype", "json");
-                        } else {
-                            builder.addHeader("Authorization", "");
-//                            builder.addHeader("returntype", "json");
-                        }
+                        builder.addHeader("Content-Type", "application/json");
+                        builder.addHeader("Cookie", cookie);
                         return chain.proceed(builder.build());
                     }
                 })

@@ -35,11 +35,8 @@ import okhttp3.Response;
  *Token 管理类
  */
 public class TokenManager {
-//    public static int USERTYPE_GUEST=0;
     public static int USERTYPE_GUEST_LOGIN=1;
     public static int USERTYPE_NORMAL=0;
-    public static int USERTYPE_SYSTEM_ADMIN=2;
-    public String current;
     private String mToken;
     private int expiresIn;
     private String reftoken;
@@ -104,6 +101,19 @@ public class TokenManager {
 
     public static void init(Context context){
         mContext = context;
+    }
+
+    public static void initialization(){
+        SPUtils.getInstance().put(SP_TOKEN, "UUIDPATHROOT");
+        SPUtils.getInstance().put(SP_TOKEN_expire, "UUIDPATHROOT");
+        SPUtils.getInstance().put(SP_TOKEN_STARTTIME, "UUIDPATHROOT");
+        SPUtils.getInstance().put(SP_REF_TOKEN, "UUIDPATHROOT");
+        SPUtils.getInstance().put(SP_REF_TOKEN_expire, "UUIDPATHROOT");
+        SPUtils.getInstance().put(SP_USER_INFO, "UUIDPATHROOT");
+        SPUtils.getInstance().put(SP_BASE_URL, "https://dev-api.yizong.cn/");
+        SPUtils.getInstance().put(SP_FASTLOGINUSER, "UUIDPATHROOT");
+        SPUtils.getInstance().put(SP_UUID_ROOT_PATH, "UUIDPATHROOT");
+
     }
 
     public boolean isCurrentLoginUser(String userId){
@@ -224,13 +234,11 @@ public class TokenManager {
 
     public void setBaseUrl(String newbaseUrl) {
         SPUtils.getInstance().put(SP_BASE_URL, newbaseUrl);
-
         baseUrl= newbaseUrl; //(String) SPUtils.getInstance().getString(SP_BASE_URL,"");
         Log.e("setBaseUrl", "now BaseUrl: is "+baseUrl );
     }
 
     public  String getSpBaseUrl() {
-//        return SPUtils.getInstance().getString(SP_BASE_URL,"https://stage-api.unokiwi.com/");
         return SPUtils.getInstance().getString(SP_BASE_URL, baseUrl);
     }
 

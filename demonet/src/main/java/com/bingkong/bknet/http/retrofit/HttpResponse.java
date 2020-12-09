@@ -11,24 +11,20 @@ import com.google.gson.annotations.SerializedName;
  * @author niejiahuan
  */
 public class HttpResponse<T> {
-
-    /**
-     * 描述信息
-     */
-    @SerializedName("message")
-    private String msg;
-
     /**
      * 状态码
      */
-    @SerializedName("code")
     private int code;
-
     /**
      * 数据对象[成功返回对象,失败返回错误说明]
      */
-    @SerializedName("data")
-    private T data;
+    private T result;
+    /**
+     * 描述信息
+     */
+    private String msg;
+
+
 
     /**
      * 是否成功(这里约定200)
@@ -40,17 +36,8 @@ public class HttpResponse<T> {
     }
 
     public String toString() {
-        String response = "[http response]" + "{\"code\": " + code + ",\"msg\":" + msg + ",\"result\":" + new Gson().toJson(data) + "}";
+        String response = "[http response]" + "{\"code\": " + code + ",\"msg\":" + msg + ",\"result\":" + new Gson().toJson(result) + "}";
         return response;
-    }
-
-
-    public String getMsg() {
-        return msg;
-    }
-
-    public void setMsg(String msg) {
-        this.msg = msg;
     }
 
     public int getCode() {
@@ -61,11 +48,19 @@ public class HttpResponse<T> {
         this.code = code;
     }
 
-    public Object getResult() {
-        return data;
+    public T getResult() {
+        return result;
     }
 
     public void setResult(T result) {
-        this.data = result;
+        this.result = result;
+    }
+
+    public String getMsg() {
+        return msg;
+    }
+
+    public void setMsg(String msg) {
+        this.msg = msg;
     }
 }

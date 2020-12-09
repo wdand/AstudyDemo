@@ -6,10 +6,12 @@ import android.util.Log;
 import com.bingkong.bknet.http.exception.ServerException;
 import com.bingkong.bknet.http.retrofit.HttpResponse;
 import com.blankj.utilcode.util.LogUtils;
+import com.blankj.utilcode.util.SPUtils;
 import com.google.gson.Gson;
 
 import io.reactivex.annotations.NonNull;
 import io.reactivex.functions.Function;
+import okhttp3.Headers;
 import retrofit2.Response;
 
 import static android.content.ContentValues.TAG;
@@ -24,11 +26,11 @@ public class ServerResultFunction implements Function<Response<HttpResponse>, Ob
     public Object apply(@NonNull Response<HttpResponse> response) throws Exception {
         //打印服务器回传结果
         LogUtils.e(response.toString());
-
-//        if (response.code()==101||response.code()==102){
-//            TokenManager.getInstance().setReftoken("");
-//            TokenManager.getInstance().setToken("");
-//        }
+        if(response.toString().indexOf("guest.account.login") > -1){//代表包含wxapp.login.loginByMobiletest
+            Headers headers =  response.headers();
+            String cookie = headers.get("set-cookie");
+            SPUtils.getInstance().put("yfwCookie", cookie);
+        }
             if (response.body() != null) {
                 if (response.body().getResult()==null){
                     if(response.raw().request().url().toString().contains("register")) {
@@ -37,7 +39,8 @@ public class ServerResultFunction implements Function<Response<HttpResponse>, Ob
                         }
                     }
                     return new Object();
-                }else {
+                }
+                else {
                     return response.body().getResult();
                 }
             }else{

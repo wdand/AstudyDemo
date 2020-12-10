@@ -4,7 +4,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".bottomnavigations.RadiobuttonAndFragmentAct">
-    <include layout="@layout/title_layout"></include>
 
     <FrameLayout
         android:id="@+id/fragment_container"
@@ -12,48 +11,108 @@
         android:layout_height="match_parent"
         android:layout_above="@+id/tabs_rg" />
 
-    <RadioGroup
-        android:id="@+id/tabs_rg"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:layout_alignParentBottom="true"
-        android:background="#dcdcdc"
-        android:orientation="horizontal">
-
-        <RadioButton
-            android:id="@+id/today_tab"
-            style="@style/Custom.TabRadioButton"
-            android:checked="true"
-            android:drawableTop="@drawable/tab_sign_selector"
-            android:text="今日" />
-
-        <RadioButton
-            android:id="@+id/record_tab"
-            style="@style/Custom.TabRadioButton"
-            android:drawableTop="@drawable/tab_record_selector"
-            android:text="记录" />
-
-        <View style="@style/Custom.TabRadioButton" />
-
-        <RadioButton
-            android:id="@+id/contact_tab"
-            style="@style/Custom.TabRadioButton"
-            android:drawableTop="@drawable/tab_contact_selector"
-            android:text="通讯录" />
-
-        <RadioButton
-            android:id="@+id/settings_tab"
-            style="@style/Custom.TabRadioButton"
-            android:drawableTop="@drawable/tab_setting_selector"
-            android:text="设置" />
-    </RadioGroup>
-
     <ImageView
         android:id="@+id/sign_iv"
         android:layout_width="80dp"
         android:layout_height="80dp"
-        android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:background="@android:color/transparent"
         android:src="@mipmap/sign" />
+
+    <LinearLayout
+        android:id="@+id/tabs_rg"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_alignParentBottom="true"
+        android:background="#ffffff"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:id="@+id/main_home"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/bottom_home_img"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:paddingTop="5dp"
+                android:src="@drawable/tab_sign_selector" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="首页" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/main_findyao"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/bottom_findyao_img"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:paddingTop="5dp"
+                android:src="@drawable/tab_record_selector" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="找药" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/main_shopcar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/bottom_shopcar_img"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:paddingTop="5dp"
+                android:src="@drawable/tab_contact_selector" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="购物车" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/main_mine"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/bottom_mine_img"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:paddingTop="5dp"
+                android:src="@drawable/tab_setting_selector" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="我的" />
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <include layout="@layout/title_layout"></include>
 </RelativeLayout>

@@ -34,6 +34,15 @@ public class BannerDataBean {
         list.add(new BannerDataBean(R.drawable.image6, "微微一笑 很倾城", 3));
         return list;
     }
+    public static List<BannerDataBean> getYFWBannerData() {
+        List<BannerDataBean> list = new ArrayList<>();
+        list.add(new BannerDataBean("https://c1.yaofangwang.net/19/1432/7dc116d095341b9df0fd142ae76087e6.nwm.png", "双十二年终盛典", 1));
+        list.add(new BannerDataBean("https://c1.yaofangwang.net/19/1341/1c10b70a172f8ca50d493b8b82d4fca8.nwm.png", "男性健康", 3));
+        list.add(new BannerDataBean("https://c1.yaofangwang.net/19/3938/b0c2b6deca87ed9ecbbaa645d1546ae4.nwm.png", "疫情专区", 3));
+        list.add(new BannerDataBean("https://c1.yaofangwang.net/19/1934/a0212425247d4a6d104d5aad8155eb88.nwm.png", "心脑血管专区", 1));
+        list.add(new BannerDataBean(R.drawable.image6, "微微一笑 很倾城", 3));
+        return list;
+    }
 
     public static List<BannerDataBean> getTestData2() {
         List<BannerDataBean> list = new ArrayList<>();

@@ -1,4 +1,4 @@
-package com.example.studydemo.shopcar;
+package com.example.studydemo.mine;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -15,19 +15,18 @@ import com.example.studydemo.R;
 import com.example.studydemo.ReqDemo;
 import com.example.studydemo.RetrofitRxJavaDemo;
 import com.example.studydemo.StoreDemo;
-import com.example.studydemo.mine.MineFragment;
+import com.example.studydemo.findyao.FindYaoFragment;
 
 import butterknife.BindView;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link ShopCarFragment#newInstance} factory method to
+ * Use the {@link MineFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
 
-
-public class ShopCarFragment extends BaseFluxFragment<StoreDemo, ReqDemo> {
-    @BindView(R.id.shopCarClick)
+public class MineFragment extends BaseFluxFragment<StoreDemo, ReqDemo> {
+    @BindView(R.id.mineClick)
     TextView add_combination;
 
     @Override
@@ -40,7 +39,8 @@ public class ShopCarFragment extends BaseFluxFragment<StoreDemo, ReqDemo> {
         add_combination.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(ShopCarFragment.this.getActivity(), RetrofitRxJavaDemo.class));
+                startActivity(new Intent(MineFragment.this.getActivity(), RetrofitRxJavaDemo.class));
+
             }
         });
     }
@@ -52,6 +52,6 @@ public class ShopCarFragment extends BaseFluxFragment<StoreDemo, ReqDemo> {
 
     @Override
     public int getLayoutId() {
-        return R.layout.fragment_shop_car;
+        return R.layout.fragment_mine;
     }
 }

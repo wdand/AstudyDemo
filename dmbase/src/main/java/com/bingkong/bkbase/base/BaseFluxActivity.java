@@ -1,6 +1,7 @@
 package com.bingkong.bkbase.base;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.view.MotionEvent;
@@ -8,8 +9,11 @@ import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 
+import com.alibaba.android.arouter.launcher.ARouter;
+import com.bingkong.bkbase.LoginAct;
 import com.bingkong.bkbase.event.ModuleMessage;
 import com.bingkong.bkbase.ui.act.BaseView;
+
 import com.bingkong.bknet.http.retrofit.TokenManager;
 import com.blankj.utilcode.util.StringUtils;
 import com.squareup.otto.Bus;
@@ -85,7 +89,14 @@ public abstract class BaseFluxActivity<STORE extends Store, CREATER extends Acti
      */
     @BindEvent
     public void onEvent(Store.StoreChangeEvent event) {
+        String s = event.data.toString();
+        if (event.data.toString().indexOf("code\": -999")>-1){
+            Intent intent = new Intent(this, LoginAct.class);
+            startActivity(intent);
+            return;
+        }
         updateView(event);
+
     }
 
 

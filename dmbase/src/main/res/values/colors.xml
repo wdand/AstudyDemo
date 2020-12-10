@@ -47,31 +47,10 @@
     <color name="text_commentbody">#212A31</color>
     <color name="color_light_gray">#F7F7F7</color>
     <color name="color_medium_gray">#E0E0E0</color>
-
     <color name="color_media_bg">#E8E8E8</color>
     <color name="color_media_selectbolder">#F87F01</color>
     <color name="color_media_everythingok">#0bbe06</color>
-
-    <color name="uk_primary">#fc8f44</color>
-    <color name="uk_primary_dark">#e2803d</color>
-    <color name="uk_accent">#f06292</color>
-    <color name="uk_primary_new">#FFB866</color>
-    <color name="uk_secondary">#647882</color>
-    <color name="uk_success">#66bb6a</color>
-    <color name="uk_info">#3f69e1</color>
-    <color name="uk_warning">#4dd0e1</color>
-    <color name="uk_danger">#ff1a40</color>
-    <color name="uk_light">#ececec</color>
-    <color name="uk_dark">#ececec</color>
-    <color name="uk_fg">#ececec</color>
-    <color name="uk_bg">#ffffff</color>
-    <color name="uk_bg_shade1">#fbe9e7</color>
-    <color name="uk_bg_shade2">#ffccbc</color>
-    <color name="uk_bg_shade3">#ffab91</color>
-    <color name="uk_bg_shade4">#F9ACAC</color>
+    <color name="light_dark">#647882</color>
     <color name="uk_gray_common">#95989A</color>
-
-    <color name="bkstock_head_red">#D13434</color>
-    <color name="bkstock_text_label">#B89393</color>
-
+    <color name="red">#D13434</color>
 </resources>

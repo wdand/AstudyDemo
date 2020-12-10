@@ -3,6 +3,7 @@ package com.bingkong.bknet.http.retrofit;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
+import android.media.AudioRouting;
 import android.text.TextUtils;
 import android.util.Log;
 
@@ -102,6 +103,7 @@ public class TokenManager {
     public static void init(Context context){
         mContext = context;
     }
+
 
     public static void initialization(){
         SPUtils.getInstance().put(SP_TOKEN, "UUIDPATHROOT");
@@ -285,100 +287,13 @@ public class TokenManager {
         userInfoModel=null;
 
         SPUtils.getInstance().remove(SP_TOKEN);
+        SPUtils.getInstance().remove("yfwCookie");
         SPUtils.getInstance().remove(SP_TOKEN_expire);
         SPUtils.getInstance().remove(SP_REF_TOKEN);
         SPUtils.getInstance().remove(SP_REF_TOKEN_expire);
         SPUtils.getInstance().remove(SP_USER_INFO);
     }
 
-
-    void requestUserRefreshToken(){
-        // 从服务器获取token信息  静默刷新  "/login/refresh";
-        OkHttpClient client = new OkHttpClient();
-        FormBody.Builder builder = new FormBody.Builder();
-        builder.add("refreshToken", reftoken);
-        RequestBody formBody= builder.build();
-        //创建请求对象
-        Request request = new Request.Builder().url(baseUrl + "/login/refresh").post(formBody).build();
-        //创建Call请求队列
-        //请求都是放到一个队列里面的
-        Call call = client.newCall(request);
-        //开始请求
-        call.enqueue(new Callback() {
-            @Override
-            public void onFailure(Call call, IOException e) {
-                Log.e("error refresh Token", e.getMessage());
-            }
-            @Override
-            public void onResponse(Call call, Response response) throws IOException {
-                assert response.body() != null;
-                String json = response.body().string();
-                try {
-                    JSONObject responseObj= new JSONObject(json);
-                    int code = responseObj.getInt("code");
-                    Log.d("-----get code ------", responseObj.getString("code"));
-                    Log.d("get refresh Token", responseObj.getString("message"));
-
-                    if (code == 1019) {
-                        //missing token(这里不体现) || refresh token expired（主要是这个过期）
-                        //需要重新登录
-                        Intent intent = new Intent("needRefreshToken");
-                        mContext.sendBroadcast(intent);
-                        // 每次refreshToken过期的时候重新登录，并重新注册一个guest账号，防止不登录时的有些界面无法使用。
-                        // requestGuestRefreshToken();
-                    }else if (code == 1002) {
-                        //token invalid，不用操作
-                    }else if (code == 1001){
-                        //token expired，不用操作
-                    }
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-            }
-
-        });
-    }
-
-    void requestGuestRefreshToken(){
-        // 从服务器获取token信息    "/login/refresh";
-        OkHttpClient client = new OkHttpClient();
-        FormBody.Builder builder = new FormBody.Builder();
-
-        builder.add("guestUserUd", userInfoModel.getUserInfo().getUserId());
-        RequestBody formBody= builder.build();
-
-        //创建请求对象
-        Request request = new Request.Builder().url(baseUrl + "/register/guest").post(formBody).build();
-
-        //创建Call请求队列
-        //请求都是放到一个队列里面的
-        Call call = client.newCall(request);
-
-        //开始请求
-        call.enqueue(new Callback() {
-            @Override
-            public void onFailure(Call call, IOException e) {
-                Log.e("error refresh Token", e.getMessage());
-
-            }
-
-            @Override
-            public void onResponse(Call call, Response response) throws IOException {
-                assert response.body() != null;
-                String json = response.body().string();
-                try {
-                    JSONObject responseObj= new JSONObject(json);
-                    JSONObject dataDic= new JSONObject(responseObj.getString("data"));
-                    String accessToken = dataDic.getString("accessToken");
-                    String refreshToken = dataDic.getString("refreshToken");
-                    setToken(accessToken);
-                    setReftoken(refreshToken);
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-            }
-        });
-    }
 
     public static boolean isApkInDebug(Context context) {
         try {

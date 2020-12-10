@@ -1,5 +1,6 @@
 package com.bingkong.bknet.http.function;
 
+import android.content.Intent;
 import android.text.TextUtils;
 import android.util.Log;
 
@@ -37,6 +38,9 @@ public class ServerResultFunction implements Function<Response<HttpResponse>, Ob
                         if(!response.body().getMsg().equals("success")){
                             throw new ServerException(response.code(), response.body().getMsg());
                         }
+                    }
+                    if (response.body().getCode() == -999){
+                       return response.body();
                     }
                     return new Object();
                 }

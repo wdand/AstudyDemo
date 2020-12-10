@@ -93,7 +93,6 @@ public class AllDemoActivity extends Activity {
         String name = sp.getString("name", "111");
         textView.setText(name);
         List<User> list = new ArrayList<>();
-        ARouter.init(this.getApplication());
         initData(list);
         userIconMy = findViewById(R.id.userIconMy);
         listView = findViewById(R.id.main_listView);

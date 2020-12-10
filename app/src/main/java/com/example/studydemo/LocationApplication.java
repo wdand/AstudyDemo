@@ -9,6 +9,7 @@ import android.os.Vibrator;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatDelegate;
 
+import com.alibaba.android.arouter.launcher.ARouter;
 import com.baidu.mapapi.CoordType;
 import com.baidu.mapapi.SDKInitializer;
 import com.bingkong.bkbase.app.ComApp;
@@ -98,6 +99,7 @@ public class LocationApplication extends ComApp {
         context=getApplicationContext();
         String baseUrl;
         super.onCreate();
+        ARouter.init(this);
         /***
          * 初始化定位sdk
          */

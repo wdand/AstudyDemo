@@ -19,6 +19,7 @@ import com.example.studydemo.ReqDemo;
 import com.example.studydemo.RetrofitRxJavaDemo;
 import com.example.studydemo.StoreDemo;
 import com.example.studydemo.banner.adapter.ImageAdapter;
+import com.example.studydemo.banner.adapter.ImageNetAdapter;
 import com.example.studydemo.banner.adapter.ImageTitleNumAdapter;
 import com.example.studydemo.banner.bean.BannerDataBean;
 import com.google.android.material.snackbar.Snackbar;
@@ -60,7 +61,7 @@ public class HomeFragment extends BaseFluxFragment<StoreDemo, ReqDemo> {
                     LogUtils.d("position：" + position);
                 });//设置点击事件,传this也行
         refresh.setEnabled(true);
-        banner.setAdapter(new ImageTitleNumAdapter(BannerDataBean.getYFWBannerData()));
+        banner.setAdapter(new ImageNetAdapter(BannerDataBean.getYFWBannerData()));
         banner.removeIndicator();
         add_combination.setOnClickListener(new View.OnClickListener() {
             @Override

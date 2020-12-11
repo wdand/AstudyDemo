@@ -37,4 +37,9 @@ public class ReqDemo extends ActionsCreator {
         reqDate(ServiceManager.create(CombApi.class).getSoul(),
                 act, false, CombApi.APITAG_GETSOUL, ServiceManager.getUsedToken(CombApi.class));
     }
+
+    public void getHomeData(LifecycleProvider act,String os ,String deviceName) {
+        reqDate(ServiceManager.create(CombApi.class).getHomeData("app_wx",os,deviceName),
+                act, false, CombApi.APITAG_GETHOEMDATA, ServiceManager.getUsedToken(CombApi.class));
+    }
 }

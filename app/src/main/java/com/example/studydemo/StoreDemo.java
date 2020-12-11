@@ -16,14 +16,17 @@ public class StoreDemo extends Store {
     public void userLogin(HashMap<String, Object> data) {
         emitStoreChange(CombApi.APITAG_USERLOGIN, data);
     }
+
     @BindAction(CombApi.APITAG_CASEHISTORY)
     public void getCaseHistoryListV(HashMap<String, Object> data) {
         emitStoreChange(CombApi.APITAG_CASEHISTORY, data);
     }
+
     @BindAction(CombApi.APITAG_YFW_LOGIN)
     public void yfwLogin(HashMap<String, Object> data) {
         emitStoreChange(CombApi.APITAG_YFW_LOGIN, data);
     }
+
     @BindAction(CombApi.APITAG_GETORDER)
     public void getAllOrder(HashMap<String, Object> data) {
         emitStoreChange(CombApi.APITAG_GETORDER, data);
@@ -32,5 +35,10 @@ public class StoreDemo extends Store {
     @BindAction(CombApi.APITAG_GETSOUL)
     public void getSoul(HashMap<String, Object> data) {
         emitStoreChange(CombApi.APITAG_GETSOUL, data);
+    }
+
+    @BindAction(CombApi.APITAG_GETHOEMDATA)
+    public void getHomeData(HashMap<String, Object> data) {
+        emitStoreChange(CombApi.APITAG_GETHOEMDATA, data);
     }
 }

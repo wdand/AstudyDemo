@@ -71,12 +71,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         layout = findViewById(R.id.fragment_container);
         switchContent(home);
         homeImg.setSelected(true);
-        findViewById(R.id.back_button).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
         initView();
     }
 

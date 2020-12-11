@@ -32,4 +32,9 @@ public class ReqDemo extends ActionsCreator {
         reqDate(ServiceManager.create(CombApi.class).getAllOrder(pageIndex,pageIndex),
                 act, false, CombApi.APITAG_GETORDER, ServiceManager.getUsedToken(CombApi.class));
     }
+
+    public void getSoul(LifecycleProvider act) {
+        reqDate(ServiceManager.create(CombApi.class).getSoul(),
+                act, false, CombApi.APITAG_GETSOUL, ServiceManager.getUsedToken(CombApi.class));
+    }
 }

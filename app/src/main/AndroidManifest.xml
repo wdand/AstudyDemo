@@ -15,6 +15,8 @@
         <activity android:name=".AllDemoActivity" /> <!-- 声明service组件 -->
         <activity android:name=".LocationActivity" /> <!-- AK鉴权 -->
         <activity android:name=".addressselector.AddressSelectActivity" /> <!-- http://lbsyun.baidu.com/apiconsole/key -->
+        <activity android:name="com.bingkong.bkbase.LoginAct"/>
+
         <activity
             android:name=".MenuActivity"
             android:theme="@style/MyBottomDialog" />

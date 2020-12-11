@@ -2,6 +2,7 @@ package com.example.studydemo;
 
 import com.bingkong.bkbase.model.LoginResponse;
 import com.bingkong.bknet.http.retrofit.HttpResponse;
+import com.example.studydemo.bean.SoulOne;
 
 import io.reactivex.Observable;
 import retrofit2.Response;
@@ -13,6 +14,7 @@ public interface CombApi {
     public static final String APITAG_CASEHISTORY = "caseHistory";
     public static final String APITAG_YFW_LOGIN = "yfwLogin";
     public static final String APITAG_GETORDER = "yfwGetOrder";
+    public static final String APITAG_GETSOUL = "getSoul";
 
     @POST("wxapp.login.loginByMobiletest")
 //    Observable<Response<LoginResponse>> phoneLogin(@Query("appId") String app_id,@Query("appKey") String app_key,@Query("loginId") String loginId);
@@ -26,5 +28,8 @@ public interface CombApi {
 
     @POST("person.order.getPageData")
     Observable<Response<HttpResponse<OrderInfo.ResultBean>>> getAllOrder(@Query("pageIndex") Integer pageIndex, @Query("pageSize") Integer pageSize);
+
+    @POST("https://v1.alapi.cn/api/soul")
+    Observable<Response<SoulOne>> getSoul();
 
 }

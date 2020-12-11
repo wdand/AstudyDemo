@@ -126,6 +126,7 @@ public class RetrofitUtils {
      * @author niejiahuan
      */
     public Retrofit retrofit() {
+        String s = TokenManager.getInstance().getSpBaseUrl();
         Retrofit retrofit = new Retrofit.Builder()
                 .client(okHttpClient())
                 .baseUrl(TokenManager.getInstance().getSpBaseUrl())

@@ -33,6 +33,7 @@ public class ServerResultFunction implements Function<Response<HttpResponse>, Ob
             SPUtils.getInstance().put("yfwCookie", cookie);
         }
             if (response.body() != null) {
+//                return response.body();
                 if (response.body().getResult()==null){
                     if(response.raw().request().url().toString().contains("register")) {
                         if(!response.body().getMsg().equals("success")){

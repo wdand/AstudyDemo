@@ -153,7 +153,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if (keyCode == KeyEvent.KEYCODE_BACK) {
-            exit();
+            Intent i= new Intent(Intent.ACTION_MAIN);
+            i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            i.addCategory(Intent.CATEGORY_HOME);
+            startActivity(i);
+//            exit();
             return false;
         }
         return super.onKeyDown(keyCode, event);
@@ -200,4 +204,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
         }
     }
+
+//    @Override
+//    public void onBackPressed() {
+//        //实现Home键效果
+//        //super.onBackPressed();这句话一定要注掉,不然又去调用默认的back处理方式了
+//        Intent i= new Intent(Intent.ACTION_MAIN);
+//        i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+//        i.addCategory(Intent.CATEGORY_HOME);
+//        startActivity(i);
+//    }
 }

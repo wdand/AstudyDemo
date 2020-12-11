@@ -16,6 +16,7 @@ import com.bingkong.bkbase.model.LoginResponse;
 import com.bingkong.bkbase.model.RegisteredInfo;
 import com.bingkong.bknet.http.model.UserInfoModel;
 import com.bingkong.bknet.http.retrofit.TokenManager;
+import com.example.studydemo.bean.SoulOne;
 
 public class RetrofitRxJavaDemo extends BaseFluxActivity<StoreDemo,ReqDemo> {
 
@@ -36,6 +37,7 @@ public class RetrofitRxJavaDemo extends BaseFluxActivity<StoreDemo,ReqDemo> {
             @Override
             public void onClick(View v) {
                 TokenManager.getInstance().clearToken();
+                actionsCreator().getSoul(RetrofitRxJavaDemo.this);
 //                actionsCreator().getAllOrder(RetrofitRxJavaDemo.this, 1,10);
             }
         });
@@ -71,29 +73,31 @@ public class RetrofitRxJavaDemo extends BaseFluxActivity<StoreDemo,ReqDemo> {
         if (CombApi.APITAG_USERLOGIN.equals(event.url)) {
             if (event.code == 200) {
                 LoginResponse.ResultBean loginResponse = (LoginResponse.ResultBean) event.data;
-                UserInfoModel userInfoModel = new UserInfoModel();
-                TokenManager.getInstance().setUserInfoModel(userInfoModel);
+
             }
         }
         else if (CombApi.APITAG_CASEHISTORY.equals(event.url)) {
             if (event.code == 200) {
                 CaseDemoBean.ResultBean loginResponse = (CaseDemoBean.ResultBean) event.data;
-                UserInfoModel userInfoModel = new UserInfoModel();
-                TokenManager.getInstance().setUserInfoModel(userInfoModel);
             }
         }
         else if (CombApi.APITAG_YFW_LOGIN.equals(event.url)) {
             if (event.code == 200) {
                 YFWLoginInfo.ResultBean loginResponse = (YFWLoginInfo.ResultBean) event.data;
-                UserInfoModel userInfoModel = new UserInfoModel();
-                TokenManager.getInstance().setUserInfoModel(userInfoModel);
             }
         }
         else if (CombApi.APITAG_GETORDER.equals(event.url)) {
             if (event.code == 200) {
                 OrderInfo.ResultBean loginResponse = (OrderInfo.ResultBean) event.data;
-                UserInfoModel userInfoModel = new UserInfoModel();
-                TokenManager.getInstance().setUserInfoModel(userInfoModel);
+
+            }
+        }
+        else if (CombApi.APITAG_GETSOUL.equals(event.url)) {
+            if (event.code == 200) {
+                SoulOne loginResponse = (SoulOne) event.data;
+                String s = "123";
+                int a = 0;
+
             }
         }
     }

@@ -51,8 +51,6 @@ public class LoginAct extends BaseFluxActivity<LoginStore,ReqLogin> implements V
          if (LoginApi.APITAG_YFW_LOGIN.equals(event.url)) {
             if (event.code == 200) {
                 YFWLoginInfoRes.ResultBean loginResponse = (YFWLoginInfoRes.ResultBean) event.data;
-                UserInfoModel userInfoModel = new UserInfoModel();
-                TokenManager.getInstance().setUserInfoModel(userInfoModel);
             }
         }
 

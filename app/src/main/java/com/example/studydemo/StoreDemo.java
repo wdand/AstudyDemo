@@ -28,4 +28,9 @@ public class StoreDemo extends Store {
     public void getAllOrder(HashMap<String, Object> data) {
         emitStoreChange(CombApi.APITAG_GETORDER, data);
     }
+
+    @BindAction(CombApi.APITAG_GETSOUL)
+    public void getSoul(HashMap<String, Object> data) {
+        emitStoreChange(CombApi.APITAG_GETSOUL, data);
+    }
 }

@@ -76,6 +76,7 @@ public class AllDemoActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        StatusBarUtil.setTransparent(this,false);
 //        getPersimmions();
 //        getWindow().setFlags(WindowManager.LayoutParams.FLAG_SECURE, WindowManager.LayoutParams.FLAG_SECURE);
         setContentView(R.layout.activity_all_demo);

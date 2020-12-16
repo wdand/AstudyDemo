@@ -35,6 +35,7 @@ import com.youth.banner.Banner;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import crossoverone.statuslib.StatusUtil;
 
 @Route(path = ArouterConstants.MAIN_ACT)
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
@@ -58,6 +59,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        StatusBarUtil.setTransparent(this,true);
         setContentView(R.layout.activity_radiobutton_and_fragment);
         ButterKnife.bind(this);
         homeImg = findViewById(R.id.bottom_home_img);

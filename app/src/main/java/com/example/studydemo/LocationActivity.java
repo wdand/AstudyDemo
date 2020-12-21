@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.Activity;
 import android.os.Bundle;
 import android.text.method.ScrollingMovementMethod;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -20,7 +21,7 @@ public class LocationActivity extends Activity {
     private TextView LocationResult;
     private TextView LocationDiagnostic;
     private Button startLocation;
-
+    private static final String TAG = "LocationActivity";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -68,6 +69,7 @@ public class LocationActivity extends Activity {
         // TODO Auto-generated method stub
         locationService.unregisterListener(mListener); //注销掉监听
         locationService.stop(); //停止定位服务
+        Log.d(TAG, "onStop: ");
         super.onStop();
     }
 
@@ -75,6 +77,7 @@ public class LocationActivity extends Activity {
     protected void onStart() {
         // TODO Auto-generated method stub
         super.onStart();
+        Log.d(TAG, "onStart:");
         // -----------location config ------------
         locationService = ((LocationApplication) getApplication()).locationService;
         //获取locationservice实例，建议应用中只初始化1个location实例，然后使用，可以参考其他示例的activity，都是通过此种方式获取locationservice实例的
@@ -279,4 +282,28 @@ public class LocationActivity extends Activity {
             logMsg(sb.toString(), tag);
         }
     };
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        Log.d(TAG, "onRestart: ");
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.d(TAG, "onResume: ");
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        Log.d(TAG, "onPause: ");
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Log.d(TAG, "onDestroy: ");
+    }
 }

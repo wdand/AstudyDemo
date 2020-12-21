@@ -7,6 +7,7 @@
     android:background="#ffffff"
     android:orientation="vertical"
     tools:context=".AllDemoActivity">
+    <include layout="@layout/common_title_layout"></include>
 
     <TextView
         android:id="@+id/save_data"

@@ -1,51 +1,43 @@
 package com.example.studydemo.home;
 
 import android.content.Intent;
-import android.graphics.drawable.Drawable;
-import android.os.AsyncTask;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
+import android.os.Handler;
+import android.os.Message;
+import android.text.SpannableString;
+import android.text.Spanned;
+import android.text.style.RelativeSizeSpan;
 import android.util.Log;
-import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
-import com.bingkong.bkbase.LoginApi;
-import com.bingkong.bkbase.YFWLoginInfoRes;
 import com.bingkong.bkbase.base.BaseFluxFragment;
 import com.bingkong.bkbase.flux.stores.Store;
+import com.blankj.utilcode.util.ToastUtils;
 import com.bumptech.glide.Glide;
-import com.example.studydemo.AllDemoActivity;
 import com.example.studydemo.CombApi;
-import com.example.studydemo.MainActivity;
 import com.example.studydemo.R;
 import com.example.studydemo.ReqDemo;
 import com.example.studydemo.RetrofitRxJavaDemo;
 import com.example.studydemo.StoreDemo;
-import com.example.studydemo.banner.adapter.ImageAdapter;
 import com.example.studydemo.banner.adapter.ImageNetAdapter;
-import com.example.studydemo.banner.adapter.ImageTitleNumAdapter;
 import com.example.studydemo.banner.bean.BannerDataBean;
 import com.example.studydemo.bean.HomeAllDataInfoBean;
-import com.google.android.material.snackbar.Snackbar;
+import com.example.studydemo.customwidget.customdialog.CommonDialog;
 import com.youth.banner.Banner;
-import com.youth.banner.indicator.CircleIndicator;
-import com.youth.banner.transformer.RotateYTransformer;
-import com.youth.banner.util.BannerUtils;
-import com.youth.banner.util.LogUtils;
 
-import java.io.IOException;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
+import es.dmoral.toasty.Toasty;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -63,15 +55,22 @@ public class HomeFragment extends BaseFluxFragment<StoreDemo, ReqDemo> {
     ImageView homeBannerBg;
     @BindView(R.id.hoem_media)
     ImageView hoem_media;
-
+    @BindView(R.id.clickOrTuchDemo)
+    TextView clickOrTuchDemo;
+    @BindView(R.id.HomefmttitleTextView)
+    TextView titleTextView;
+    private int position = 0;
+    private String string;
 
     @Override
     public void initBus() {
+        Log.e(getClass().getSimpleName() , "initBus: " );
     }
 
     @Override
     public void initData(Bundle savedInstanceState) {
         actionsCreator().getHomeData(this, "wx", "N");
+        CommonDialog commonDialog = new CommonDialog(this.getContext());
 //        ImageAdapter adapter = new ImageAdapter(BannerDataBean.getTestData2());
 //        banner.setAdapter(adapter)//设置适配器
 //                .addBannerLifecycleObserver(this)//添加生命周期观察者
@@ -82,7 +81,30 @@ public class HomeFragment extends BaseFluxFragment<StoreDemo, ReqDemo> {
 //                    Snackbar.make(banner, ((BannerDataBean) data).title, Snackbar.LENGTH_SHORT).show();
 //                    LogUtils.d("position：" + position);
 //                });//设置点击事件,传this也行
+        string = titleTextView.getText().toString();
+        handler.sendEmptyMessage(0x158);
 
+        clickOrTuchDemo.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent motionEvent) {
+                if (motionEvent.getAction() == MotionEvent.ACTION_DOWN){
+                    Log.d("test", "DOWN");
+                    return false; //DOWN时返回true
+                } else if(motionEvent.getAction() == MotionEvent.ACTION_MOVE){
+                    Log.d("test", "MOVE");
+                } else if (motionEvent.getAction() == MotionEvent.ACTION_UP){
+                    Log.d("test", "UP");
+                }
+                return false;
+            }
+        });
+        clickOrTuchDemo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.d("test", "click");
+                Toasty.normal(mContext, "关闭通知测试是否能弹出").show();
+            }
+        });
         add_combination.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -128,4 +150,25 @@ public class HomeFragment extends BaseFluxFragment<StoreDemo, ReqDemo> {
             }
         }
     }
+
+    Handler handler = new Handler() {
+
+        @Override
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
+            switch (msg.what) {
+                case 0x158:
+                    SpannableString spannableString = new SpannableString(string);
+                    RelativeSizeSpan sizeSpan = new RelativeSizeSpan(1.4f);
+                    spannableString.setSpan(sizeSpan, position, position + 1, Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
+                    titleTextView.setText(spannableString);
+                    position++;
+                    if(position >= titleTextView.getText().toString().length()) {
+                        position = 0;
+                    }
+                    handler.sendEmptyMessageDelayed(0x158, 150);
+                    break;
+            }
+        }
+    };
 }

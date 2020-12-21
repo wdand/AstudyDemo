@@ -202,6 +202,7 @@ public class AllDemoActivity extends Activity {
         list.add(new User(R.drawable.actor, "修改头像", ""));
         list.add(new User(R.drawable.actor, "获取地理位置", ""));
         list.add(new User(R.drawable.actor, "分享", ""));
+        list.add(new User(R.drawable.actor, "constraint-layout", ""));
     }
 
     public void downloadImage(String Url) {
@@ -269,6 +270,7 @@ public class AllDemoActivity extends Activity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
+        Log.d(TAG, "onDestroy: ");
         //注销静态广播
         unregisterReceiver(dynamicReceiver);
     }
@@ -473,5 +475,35 @@ public class AllDemoActivity extends Activity {
         } else {
             return true;
         }
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        Log.d(TAG, "onStart:");
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        Log.d(TAG, "onRestart: ");
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.d(TAG, "onResume: ");
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        Log.d(TAG, "onPause: ");
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        Log.d(TAG, "onStop: ");
     }
 }

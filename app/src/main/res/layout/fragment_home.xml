@@ -3,46 +3,74 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+   <LinearLayout
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"
+       android:orientation="vertical">
+       <include
+           android:layout_height="60dp"
+           android:layout_width="match_parent"
+           android:layout_above="@+id/home_banner_bg"
+           layout="@layout/common_title_layout" />
+       <RelativeLayout
+           android:visibility="gone"
+           android:layout_width="match_parent"
+           android:layout_height="match_parent">
 
-        <RelativeLayout
-            android:id="@+id/hometop"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+           <RelativeLayout
+               android:id="@+id/hometop"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content">
 
-            <ImageView
-                android:id="@+id/home_banner_bg"
-                android:layout_width="match_parent"
-                android:layout_height="180dp"
-                android:layout_alignParentTop="true"
-                android:src="@drawable/actor" />
 
-            <com.youth.banner.Banner xmlns:banner="http://schemas.android.com/apk/res-auto"
-                android:id="@+id/homeBanner"
-                android:layout_width="match_parent"
-                android:layout_height="150dp"
-                android:layout_alignParentTop="true"
-                android:layout_margin="20dp"
-                banner:banner_radius="5dp"
-                banner:indicator_normal_color="@android:color/white"
-                banner:indicator_selected_color="@color/colorPrimary" />
-        </RelativeLayout>
+               <ImageView
+                   android:id="@+id/home_banner_bg"
+                   android:layout_width="match_parent"
+                   android:layout_height="180dp"
+                   android:layout_alignParentTop="true"
+                   android:src="@drawable/actor" />
 
-        <ImageView
-            android:id="@+id/hoem_media"
-            android:layout_below="@+id/hometop"
-            android:layout_width="match_parent"
-            android:layout_height="180dp"
-            android:src="@drawable/actor" />
+               <com.youth.banner.Banner xmlns:banner="http://schemas.android.com/apk/res-auto"
+                   android:id="@+id/homeBanner"
+                   android:layout_width="match_parent"
+                   android:layout_height="150dp"
+                   android:layout_alignParentTop="true"
+                   android:layout_margin="20dp"
+                   banner:banner_radius="5dp"
+                   banner:indicator_normal_color="@android:color/white"
+                   banner:indicator_selected_color="@color/colorPrimary" />
+           </RelativeLayout>
 
-        <TextView
-            android:id="@+id/homeClick"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:text="Home" />
-    </RelativeLayout>
+           <ImageView
+               android:id="@+id/hoem_media"
+               android:layout_below="@+id/hometop"
+               android:layout_width="match_parent"
+               android:layout_height="180dp"
+               android:src="@drawable/actor" />
 
+           <TextView
+               android:id="@+id/homeClick"
+               android:layout_width="match_parent"
+               android:layout_height="match_parent"
+               android:gravity="center"
+               android:text="Home" />
+
+       </RelativeLayout>
+    <Button
+        android:id="@+id/clickOrTuchDemo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="false"
+        android:text="OnTouchListener，onTouchEvent，onClickListener执行顺序">
+    </Button>
+       <TextView
+           android:id="@+id/HomefmttitleTextView"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:text="花里胡哨毫无作用，鸡肋的压批！"
+           android:textSize="18dp"
+           android:gravity="center"
+           android:paddingTop="20dp"
+           android:textColor="@color/orange"/>
+   </LinearLayout>
 </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>

@@ -2,21 +2,49 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.studydemo">
     <!-- Required -->
+    <permission
+        android:name="${applicationId}.permission.JPUSH_MESSAGE"
+        android:protectionLevel="signature" />
+
+    <uses-permission android:name="${applicationId}.permission.JPUSH_MESSAGE" />
+    <uses-permission android:name="android.permission.RECEIVE_USER_PRESENT" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /> <!-- 定位权限 -->
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" /> <!-- Optional. Required for location feature -->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" /> <!-- 用于开启 debug 版本的应用在6.0 系统上 层叠窗口权限 -->
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" /> <!-- 拍照 -->
+    <uses-permission android:name="android.permission.GET_TASKS" /> <!-- 读写 -->
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" /> <!-- 网络 -->
+    <uses-permission android:name="android.permission.PERMISSIONS_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" /> <!-- if you want to load images from a file OR from the internet -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
     <application
         android:name=".LocationApplication"
         android:allowBackup="true"
-        android:largeHeap="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:largeHeap="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".RetrofitRxJavaDemo"></activity>
+        <activity android:name=".layouyDemo.ConstraintlayoutDemo"></activity>
+        <activity android:name=".RetrofitRxJavaDemo" />
         <activity android:name=".AllDemoActivity" /> <!-- 声明service组件 -->
         <activity android:name=".LocationActivity" /> <!-- AK鉴权 -->
         <activity android:name=".addressselector.AddressSelectActivity" /> <!-- http://lbsyun.baidu.com/apiconsole/key -->
-        <activity android:name="com.bingkong.bkbase.LoginAct"/>
-
+        <activity android:name="com.bingkong.bkbase.LoginAct" />
         <activity
             android:name=".MenuActivity"
             android:theme="@style/MyBottomDialog" />
@@ -43,7 +71,6 @@
         <activity android:name=".bottomnavigations.BottomNavigationBarActivity" />
         <activity android:name=".clipUserIcon.ClHeaderActivity" />
         <activity android:name=".clipUserIcon.ClipHeaderActivity" />
-
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -51,6 +78,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <meta-data
             android:name="com.baidu.lbsapi.API_KEY"
             android:value="4w9RV18GBl1BnfDYPFWzqVUC8NOSSuEz" />
@@ -92,7 +120,6 @@
                 <category android:name="${applicationId}" />
             </intent-filter>
         </receiver>
-
         <receiver android:name=".jpush.PushMessageReceiver">
             <intent-filter>
                 <action android:name="cn.jpush.android.intent.RECEIVE_MESSAGE" />
@@ -112,33 +139,6 @@
                 <action android:name="cn.jiguang.user.service.action" />
             </intent-filter>
         </service>
-    </application> <!-- Required -->
-    <permission
-        android:name="${applicationId}.permission.JPUSH_MESSAGE"
-        android:protectionLevel="signature" />
-    <uses-permission android:name="${applicationId}.permission.JPUSH_MESSAGE" />
-    <uses-permission android:name="android.permission.RECEIVE_USER_PRESENT" />
-    <uses-permission android:name="android.permission.WAKE_LOCK" />
-    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-    <uses-permission android:name="android.permission.VIBRATE" />
-    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /> <!-- 定位权限 -->
-    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" /> <!-- Optional. Required for location feature -->
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" /> <!-- 用于开启 debug 版本的应用在6.0 系统上 层叠窗口权限 -->
-    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
-    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
-    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" /> <!-- 拍照 -->
-    <uses-permission android:name="android.permission.GET_TASKS" /> <!-- 读写 -->
-    <uses-permission android:name="android.permission.CAMERA" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" /> <!-- 网络 -->
-    <uses-permission android:name="android.permission.PERMISSIONS_STORAGE" />
-    <uses-permission android:name="android.permission.INTERNET" /> <!-- if you want to load images from a file OR from the internet -->
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    </application>
 
 </manifest>

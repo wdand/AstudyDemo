@@ -1,5 +1,6 @@
 package com.example.studydemo;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
@@ -10,6 +11,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.os.PersistableBundle;
+import android.util.Log;
 import android.util.SparseArray;
 import android.view.KeyEvent;
 import android.view.View;
@@ -39,7 +42,8 @@ import crossoverone.statuslib.StatusUtil;
 
 @Route(path = ArouterConstants.MAIN_ACT)
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
-
+    public static final String TAG = "MainActivity";
+//    getClass().getSimpleName()  获取当前Activity名字
     private static boolean isExit = false;
     private LinearLayout home;
     private LinearLayout fineYao;
@@ -59,6 +63,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Log.d(getClass().getSimpleName(), "onCreate: ");
         StatusBarUtil.setTransparent(this,true);
         setContentView(R.layout.activity_radiobutton_and_fragment);
         ButterKnife.bind(this);
@@ -84,7 +89,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         findViewById(R.id.sign_iv).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 startActivity(new Intent(MainActivity.this, AllDemoActivity.class));
             }
         });
@@ -210,4 +214,47 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 //        i.addCategory(Intent.CATEGORY_HOME);
 //        startActivity(i);
 //    }
+
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        Log.d(TAG, "onStart:");
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        Log.d(TAG, "onRestart: ");
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.d(TAG, "onResume: ");
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        Log.d(TAG, "onPause: ");
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        Log.d(TAG, "onStop: ");
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Log.d(TAG, "onDestroy: ");
+    }
+
+    @Override
+    public void onSaveInstanceState(@NonNull Bundle outState, @NonNull PersistableBundle outPersistentState) {
+        super.onSaveInstanceState(outState, outPersistentState);
+        Log.e(TAG, "onSaveInstanceState: " );
+    }
 }

@@ -36,7 +36,7 @@ public class ImageNetAdapter extends BannerAdapter<BannerDataBean, ImageHolder> 
     @Override
     public void onBindView(ImageHolder holder, BannerDataBean data, int position, int size) {
         //通过图片加载器实现圆角，你也可以自己使用圆角的imageview，实现圆角的方法很多，自己尝试哈
-        Glide.with(holder.itemView)
+        Glide.with(holder.itemView.getContext())
                 .load(data.imageUrl)
 //                .apply(RequestOptions.bitmapTransform(new RoundedCorners(30)))
                 .into(holder.imageView);

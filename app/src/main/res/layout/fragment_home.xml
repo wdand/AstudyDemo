@@ -72,5 +72,38 @@
            android:gravity="center"
            android:paddingTop="20dp"
            android:textColor="@color/orange"/>
+
+       <RelativeLayout
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:background="@color/color_light_gray">
+           <TextView
+               android:id="@+id/select_color"
+               android:layout_width="match_parent"
+               android:layout_height="40dp"
+               android:text="Select Color"
+               android:textColor="@color/black"
+               android:layout_marginLeft="17dp"/>
+           <com.example.studydemo.selectcolorview.SelectColorPanel
+               android:id="@+id/product_coler"
+               android:layout_below="@+id/gridview"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content">
+           </com.example.studydemo.selectcolorview.SelectColorPanel>
+           <GridView
+               android:id="@+id/gridview"
+               android:visibility="gone"
+               android:layout_width="fill_parent"
+               android:layout_height="wrap_content"
+               android:listSelector="@null"
+               android:horizontalSpacing="0.5dp"
+               android:verticalSpacing="0.5dp"
+               android:background="@color/white"
+               android:numColumns="10"
+               android:scrollbars="none"
+               android:stretchMode="columnWidth"
+               android:layout_below="@+id/select_color"
+               />
+       </RelativeLayout>
    </LinearLayout>
 </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>

@@ -18,4 +18,7 @@ public class Const {
 
     public static final String PAGE_MAIN = "main";//TODO
 
+    public static final int SHOW_FULL = 1;
+    public static final int SHOW_RECENT = 2;
+
 }

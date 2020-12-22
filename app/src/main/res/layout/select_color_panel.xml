@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/scolor_panel"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="25dp"
+        android:visibility="gone">
+        <TextView
+            android:id="@+id/scolor_panel_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#95989A"
+            android:layout_marginLeft="14dp"
+            android:text="Font Colors"
+            android:textStyle="bold"
+            android:textSize="14sp"
+            android:layout_centerVertical="true"/>
+        <ImageView
+            android:id="@+id/scolor_panel_arrow_button"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_centerInParent="true"
+            android:src="@drawable/arrow_down"/>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/scolor_panel_body"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/scolor_recent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:visibility="visible">
+    </LinearLayout>
+</LinearLayout>

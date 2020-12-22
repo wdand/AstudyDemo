@@ -71,13 +71,13 @@ public class BannerDataBean {
 
     public static List<BannerDataBean> getTestData3() {
         List<BannerDataBean> list = new ArrayList<>();
-        list.add(new BannerDataBean("https://img.zcool.cn/community/011ad05e27a173a801216518a5c505.jpg", null, 1));
-        list.add(new BannerDataBean("https://img.zcool.cn/community/0148fc5e27a173a8012165184aad81.jpg", null, 1));
-        list.add(new BannerDataBean("https://img.zcool.cn/community/013c7d5e27a174a80121651816e521.jpg", null, 1));
-        list.add(new BannerDataBean("https://img.zcool.cn/community/01b8ac5e27a173a80120a895be4d85.jpg", null, 1));
-        list.add(new BannerDataBean("https://img.zcool.cn/community/01a85d5e27a174a80120a895111b2c.jpg", null, 1));
-        list.add(new BannerDataBean("https://img.zcool.cn/community/01085d5e27a174a80120a8958791c4.jpg", null, 1));
-        list.add(new BannerDataBean("https://img.zcool.cn/community/01f8735e27a174a8012165188aa959.jpg", null, 1));
+        list.add(new BannerDataBean("https://c1.yaofangwang.net/19/1432/7dc116d095341b9df0fd142ae76087e6.nwm.png", null, 1));
+        list.add(new BannerDataBean("https://c1.yaofangwang.net/19/1341/1c10b70a172f8ca50d493b8b82d4fca8.nwm.png", null, 1));
+        list.add(new BannerDataBean("https://c1.yaofangwang.net/19/3938/b0c2b6deca87ed9ecbbaa645d1546ae4.nwm.png", null, 1));
+        list.add(new BannerDataBean("https://c1.yaofangwang.net/19/1934/a0212425247d4a6d104d5aad8155eb88.nwm.png", null, 1));
+        list.add(new BannerDataBean("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1608555008376&di=e1d5e68ea044e1ffa79e8e3f73f0ce94&imgtype=0&src=http%3A%2F%2Fh.hiphotos.baidu.com%2Fzhidao%2Fpic%2Fitem%2F9c16fdfaaf51f3de9ba8ee1194eef01f3a2979a8.jpg", null, 1));
+        list.add(new BannerDataBean("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1608555008377&di=49cc1586c16bfa4f6db97e44ce875b98&imgtype=0&src=http%3A%2F%2Fa4.att.hudong.com%2F27%2F67%2F01300000921826141299672233506.jpg", null, 1));
+        list.add(new BannerDataBean("https://c1.yaofangwang.net/19/1341/1c10b70a172f8ca50d493b8b82d4fca8.nwm.png", null, 1));
         return list;
     }
 

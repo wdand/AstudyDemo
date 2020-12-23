@@ -3,107 +3,113 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-   <LinearLayout
-       android:layout_width="match_parent"
-       android:layout_height="match_parent"
-       android:orientation="vertical">
-       <include
-           android:layout_height="60dp"
-           android:layout_width="match_parent"
-           android:layout_above="@+id/home_banner_bg"
-           layout="@layout/common_title_layout" />
-       <RelativeLayout
-           android:visibility="gone"
-           android:layout_width="match_parent"
-           android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-           <RelativeLayout
-               android:id="@+id/hometop"
-               android:layout_width="match_parent"
-               android:layout_height="wrap_content">
+        <include
+            layout="@layout/common_title_layout"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_above="@+id/home_banner_bg" />
 
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone">
 
-               <ImageView
-                   android:id="@+id/home_banner_bg"
-                   android:layout_width="match_parent"
-                   android:layout_height="180dp"
-                   android:layout_alignParentTop="true"
-                   android:src="@drawable/actor" />
+            <RelativeLayout
+                android:id="@+id/hometop"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-               <com.youth.banner.Banner xmlns:banner="http://schemas.android.com/apk/res-auto"
-                   android:id="@+id/homeBanner"
-                   android:layout_width="match_parent"
-                   android:layout_height="150dp"
-                   android:layout_alignParentTop="true"
-                   android:layout_margin="20dp"
-                   banner:banner_radius="5dp"
-                   banner:indicator_normal_color="@android:color/white"
-                   banner:indicator_selected_color="@color/colorPrimary" />
-           </RelativeLayout>
+                <ImageView
+                    android:id="@+id/home_banner_bg"
+                    android:layout_width="match_parent"
+                    android:layout_height="180dp"
+                    android:layout_alignParentTop="true"
+                    android:src="@drawable/actor" />
 
-           <ImageView
-               android:id="@+id/hoem_media"
-               android:layout_below="@+id/hometop"
-               android:layout_width="match_parent"
-               android:layout_height="180dp"
-               android:src="@drawable/actor" />
+                <com.youth.banner.Banner xmlns:banner="http://schemas.android.com/apk/res-auto"
+                    android:id="@+id/homeBanner"
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_margin="20dp"
+                    banner:banner_radius="5dp"
+                    banner:indicator_normal_color="@android:color/white"
+                    banner:indicator_selected_color="@color/colorPrimary" />
+            </RelativeLayout>
 
-           <TextView
-               android:id="@+id/homeClick"
-               android:layout_width="match_parent"
-               android:layout_height="match_parent"
-               android:gravity="center"
-               android:text="Home" />
+            <ImageView
+                android:id="@+id/hoem_media"
+                android:layout_width="match_parent"
+                android:layout_height="180dp"
+                android:layout_below="@+id/hometop"
+                android:src="@drawable/actor" />
 
-       </RelativeLayout>
-    <Button
-        android:id="@+id/clickOrTuchDemo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:clickable="false"
-        android:text="OnTouchListener，onTouchEvent，onClickListener执行顺序">
-    </Button>
-       <TextView
-           android:id="@+id/HomefmttitleTextView"
-           android:layout_width="match_parent"
-           android:layout_height="wrap_content"
-           android:text="花里胡哨毫无作用，鸡肋的压批！"
-           android:textSize="18dp"
-           android:gravity="center"
-           android:paddingTop="20dp"
-           android:textColor="@color/orange"/>
+            <TextView
+                android:id="@+id/homeClick"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="Home" />
 
-       <RelativeLayout
-           android:layout_width="match_parent"
-           android:layout_height="wrap_content"
-           android:background="@color/color_light_gray">
-           <TextView
-               android:id="@+id/select_color"
-               android:layout_width="match_parent"
-               android:layout_height="40dp"
-               android:text="Select Color"
-               android:textColor="@color/black"
-               android:layout_marginLeft="17dp"/>
-           <com.example.studydemo.selectcolorview.SelectColorPanel
-               android:id="@+id/product_coler"
-               android:layout_below="@+id/gridview"
-               android:layout_width="match_parent"
-               android:layout_height="wrap_content">
-           </com.example.studydemo.selectcolorview.SelectColorPanel>
-           <GridView
-               android:id="@+id/gridview"
-               android:visibility="gone"
-               android:layout_width="fill_parent"
-               android:layout_height="wrap_content"
-               android:listSelector="@null"
-               android:horizontalSpacing="0.5dp"
-               android:verticalSpacing="0.5dp"
-               android:background="@color/white"
-               android:numColumns="10"
-               android:scrollbars="none"
-               android:stretchMode="columnWidth"
-               android:layout_below="@+id/select_color"
-               />
-       </RelativeLayout>
-   </LinearLayout>
+        </RelativeLayout>
+
+        <Button
+            android:id="@+id/clickOrTuchDemo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="false"
+            android:text="OnTouchListener，onTouchEvent，onClickListener执行顺序"/>
+
+        <TextView
+            android:id="@+id/HomefmttitleTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:paddingTop="20dp"
+            android:paddingBottom="20dp"
+            android:layout_margin="@dimen/dp_10"
+            android:background="@drawable/textview_border"
+            android:text="花里胡哨毫无作用，鸡肋的压批！"
+            android:textColor="@color/orange"
+            android:textSize="18dp" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/color_light_gray">
+
+            <TextView
+                android:id="@+id/select_color"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginLeft="17dp"
+                android:text="Select Color"
+                android:textColor="@color/black" />
+
+            <com.example.studydemo.selectcolorview.SelectColorPanel
+                android:id="@+id/product_coler"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/gridview"/>
+
+            <GridView
+                android:id="@+id/gridview"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/select_color"
+                android:background="@color/white"
+                android:horizontalSpacing="0.5dp"
+                android:listSelector="@null"
+                android:numColumns="10"
+                android:scrollbars="none"
+                android:stretchMode="columnWidth"
+                android:verticalSpacing="0.5dp"
+                android:visibility="gone" />
+        </RelativeLayout>
+    </LinearLayout>
 </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>

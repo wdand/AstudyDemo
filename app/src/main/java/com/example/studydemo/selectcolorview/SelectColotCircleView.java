@@ -91,18 +91,18 @@ public class SelectColotCircleView extends View {
         int centerY = getHeight() / 2;//获取高度一半
         int radius = Math.min(centerX, centerY);//设置半径为宽或者高的最小值
         if(materialData != null && !TextUtils.isEmpty(materialData.getPath())) {
-            LogUtils.logd(TAG, "onDraw " + materialData.getPath());
+//            LogUtils.logd(TAG, "onDraw " + materialData.getPath());
             initShaderToPaint(materialData.getPath());
         } else if(materialData != null && !TextUtils.isEmpty(materialData.getColor())) {
-            LogUtils.logd(TAG, "onDraw " + materialData.getColor());
+//            LogUtils.logd(TAG, "onDraw " + materialData.getColor());
 
             mPaint.setColor(Color.parseColor(materialData.getColor()));//设置画笔颜色
         } else if(ColorPlatte.TRANSPARENT_COLOR.equals(colorStr)) {
-            LogUtils.logd(TAG, "onDraw " + colorStr);
+//            LogUtils.logd(TAG, "onDraw " + colorStr);
             //如果是透明色
             initShaderToPaint();
         } else if(!TextUtils.isEmpty(colorStr)) {
-            LogUtils.logd(TAG, "onDraw " + colorStr);
+//            LogUtils.logd(TAG, "onDraw " + colorStr);
             mPaint.setColor(Color.parseColor(colorStr));//设置画笔颜色
         }
 

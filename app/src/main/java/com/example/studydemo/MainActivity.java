@@ -64,7 +64,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Log.d(getClass().getSimpleName(), "onCreate: ");
-        StatusBarUtil.setTransparent(this,true);
+        StatusBarUtil.setTransparent(this,true); //沉浸式状态栏
         setContentView(R.layout.activity_radiobutton_and_fragment);
         ButterKnife.bind(this);
         homeImg = findViewById(R.id.bottom_home_img);

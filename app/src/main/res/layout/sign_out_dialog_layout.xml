@@ -58,7 +58,7 @@
                 android:text="取消"
                 android:textAllCaps="false"
                 android:layout_marginRight="15dp"
-                android:textColor="@color/orange"
+                android:textColor="@color/lig_orange"
                 android:textSize="14sp" />
 
             <View

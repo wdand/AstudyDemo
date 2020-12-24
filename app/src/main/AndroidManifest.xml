@@ -43,7 +43,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".layouyDemo.ConstraintlayoutDemo"></activity>
+        <activity android:name=".findyao.IndicatorActivity"></activity>
+        <activity android:name=".findyao.LoadingDemoActivity" />
+        <activity android:name=".layouyDemo.ConstraintlayoutDemo" />
         <activity android:name=".RetrofitRxJavaDemo" />
         <activity android:name=".AllDemoActivity" /> <!-- 声明service组件 -->
         <activity android:name=".LocationActivity" /> <!-- AK鉴权 -->

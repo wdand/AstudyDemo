@@ -75,7 +75,7 @@
             android:layout_margin="@dimen/dp_10"
             android:background="@drawable/textview_border"
             android:text="花里胡哨毫无作用，鸡肋的压批！"
-            android:textColor="@color/orange"
+            android:textColor="@color/lig_orange"
             android:textSize="18dp" />
 
         <RelativeLayout

@@ -22,6 +22,7 @@ import android.text.style.RelativeSizeSpan;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -67,6 +68,8 @@ public class HomeFragment extends BaseFluxFragment<StoreDemo, ReqDemo> implement
     ImageView hoem_media;
     @BindView(R.id.clickOrTuchDemo)
     TextView clickOrTuchDemo;
+//    @BindView(R.id.canmovebutton)
+//    Button canmovebutton;
     @BindView(R.id.HomefmttitleTextView)
     TextView titleTextView;
     @BindView(R.id.product_coler)

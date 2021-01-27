@@ -66,6 +66,7 @@ public class SelectColotCircleView extends View {
     public String getColor() {
         return this.colorStr;
     }
+
     public void setSelected(boolean selected,Context context) {
         this.selected = selected;
         this.mContext = context;

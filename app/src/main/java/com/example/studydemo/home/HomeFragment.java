@@ -74,10 +74,13 @@ public class HomeFragment extends BaseFluxFragment<StoreDemo, ReqDemo> implement
     TextView titleTextView;
     @BindView(R.id.product_coler)
     SelectColorPanel mColorPanel;
+    @BindView(R.id.custom_circleView)
+    CustomView custom_circleView;
     private int position = 0;
     private String string;
     private ArrayList<ProductColorData> mDataList = new ArrayList<>();
 
+    public static final  int SHOW_TOAST_HANDLER = 1;
     @Override
     public void initBus() {
         Log.e(getClass().getSimpleName(), "initBus: ");
@@ -113,6 +116,13 @@ public class HomeFragment extends BaseFluxFragment<StoreDemo, ReqDemo> implement
             @Override
             public void onDataChange(ProductColorData materialData) {
                 titleTextView.setTextColor(Color.parseColor(materialData.getColor()));
+            }
+        });
+
+        custom_circleView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+//                custom_circleView.setSelected();
             }
         });
 
@@ -154,11 +164,21 @@ public class HomeFragment extends BaseFluxFragment<StoreDemo, ReqDemo> implement
                 return false;
             }
         });
+
         clickOrTuchDemo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Log.d("test", "click");
-                Toasty.normal(mContext, "关闭通知测试是否能弹出").show();
+//                Toasty.normal(HomeFragment.this.getContext(), "关闭通知测试是否能弹出").show();
+//                new Thread(new Runnable() {
+//                    @Override
+//                    public void run() {
+//                        Message message = new Message();
+//                        message.what = SHOW_TOAST_HANDLER;
+//                        //将Message对象发送出去
+//                        handlers.sendMessage(message);
+//                    }
+//                }).start();
             }
         });
         add_combination.setOnClickListener(new View.OnClickListener() {
@@ -173,7 +193,7 @@ public class HomeFragment extends BaseFluxFragment<StoreDemo, ReqDemo> implement
             public void onClick(View v) {
                 getAuthorization();
                 TelephonyManager tm = (TelephonyManager) HomeFragment.this.getContext().getSystemService(Context.TELEPHONY_SERVICE);
-                String deviceid = tm.getDeviceId();
+//                String deviceid = tm.getDeviceId();
                 if (ActivityCompat.checkSelfPermission(HomeFragment.this.getContext(), Manifest.permission.READ_SMS) != PackageManager.PERMISSION_GRANTED &&
                         ActivityCompat.checkSelfPermission(HomeFragment.this.getContext(), Manifest.permission.READ_PHONE_NUMBERS) != PackageManager.PERMISSION_GRANTED &&
                         ActivityCompat.checkSelfPermission(HomeFragment.this.getContext(), Manifest.permission.READ_PHONE_STATE) != PackageManager.PERMISSION_GRANTED) {
@@ -192,6 +212,23 @@ public class HomeFragment extends BaseFluxFragment<StoreDemo, ReqDemo> implement
             }
         });
     }
+
+
+    /**
+     * 新建一个Handel
+     * 接收button发送的参数
+     * 对主线程中的UI进行修改
+     */
+    private Handler handlers = new Handler() {
+        public void handleMessage(Message msg) {
+            switch (msg.what) {
+                case SHOW_TOAST_HANDLER:
+                    //在这里进行UI操作
+                    titleTextView.setText("大聪明");
+                    break;
+            }
+        }
+    };
 
     @Override
     public void setListener() {
@@ -223,7 +260,7 @@ public class HomeFragment extends BaseFluxFragment<StoreDemo, ReqDemo> implement
                 }
                 Glide.with(HomeFragment.this.getContext()).load("https://c1.yaofangwang.net/19/3541/9e90569121c067bde29b5a50e641dedb.nwm.jpg").into(homeBannerBg);
                 Glide.with(HomeFragment.this.getContext()).load("https://c1.yaofangwang.net/19/2878/7f5ab224a4cbaf0fa0da52ef457761b0.nwm.png").into(hoem_media);
-                refresh.setEnabled(true);
+                refresh.setEnabled(false);
                 banner.setAdapter(new ImageNetAdapter(mDatas));
                 banner.removeIndicator();
             }

@@ -111,5 +111,11 @@
                 android:verticalSpacing="0.5dp"
                 android:visibility="gone" />
         </RelativeLayout>
+        <com.example.studydemo.home.CustomView
+            android:id="@+id/custom_circleView"
+            android:layout_marginTop="20dp"
+            android:layout_width="wrap_content"
+            android:layout_gravity="center"
+            android:layout_height="200dp"/>
     </LinearLayout>
 </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>

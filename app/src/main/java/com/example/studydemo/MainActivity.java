@@ -109,15 +109,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 bundle.putParcelable("wdss",intentData);
                 intent.putExtras(bundle);
                 startActivity(intent);
-
-//                IntentData user1 = new IntentData();// 实例化对象
-//                user1.setName("weud");
-//                user1.setAge(22);
-//                Intent intent = new Intent(MainActivity.this, AllDemoActivity.class);
-//                Bundle bundle = new Bundle();
-//                bundle.putParcelable("user", user1);// 序列化
-//                intent.putExtras(bundle);// 发送数据
-//                startActivity(intent);// 启动intent
             }
         });
     }

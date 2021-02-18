@@ -66,7 +66,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Log.d(getClass().getSimpleName(), "onCreate: ");
-
         Log.e("context", "getApplication in Activity: " + getApplication().getClass().getName());
         Log.e("context", "getApplicationContext in Activity: " + getApplicationContext().getClass().getName());
         Log.e("context", "getBaseContext in Activity: " + getBaseContext().getClass().getName());

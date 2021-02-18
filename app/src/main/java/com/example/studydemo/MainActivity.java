@@ -29,10 +29,12 @@ import com.example.studydemo.banner.adapter.ImageTitleNumAdapter;
 import com.example.studydemo.banner.bean.BannerDataBean;
 import com.example.studydemo.bottomnavigations.BlankFragment;
 import com.example.studydemo.bottomnavigations.HelloWorld;
+import com.example.studydemo.datas.IntentData;
 import com.example.studydemo.findyao.FindYaoFragment;
 import com.example.studydemo.home.HomeFragment;
 import com.example.studydemo.manager.ActivityStackManager;
 import com.example.studydemo.mine.MineFragment;
+import com.example.studydemo.recyclerviewchecked.bean.Person;
 import com.example.studydemo.shopcar.ShopCarFragment;
 import com.youth.banner.Banner;
 
@@ -85,6 +87,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         initView();
     }
 
+    @Override
+    protected void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+        Log.e(TAG, "onSaveInstanceState: " );
+    }
+
     private void initView() {
         home.setOnClickListener(this);
         shopCar.setOnClickListener(this);
@@ -93,7 +101,23 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         findViewById(R.id.sign_iv).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, AllDemoActivity.class));
+                IntentData intentData = new IntentData();
+                intentData.setName("weid");
+                intentData.setAge(18);
+                Intent intent = new Intent(MainActivity.this, AllDemoActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putParcelable("wdss",intentData);
+                intent.putExtras(bundle);
+                startActivity(intent);
+
+//                IntentData user1 = new IntentData();// 实例化对象
+//                user1.setName("weud");
+//                user1.setAge(22);
+//                Intent intent = new Intent(MainActivity.this, AllDemoActivity.class);
+//                Bundle bundle = new Bundle();
+//                bundle.putParcelable("user", user1);// 序列化
+//                intent.putExtras(bundle);// 发送数据
+//                startActivity(intent);// 启动intent
             }
         });
     }

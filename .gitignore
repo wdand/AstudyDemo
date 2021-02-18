@@ -1,0 +1,7 @@
+.gradle/
+.idea/
+common/build/
+demonet/build/
+dmbase/build/
+HomePage/build/
+toasty/build/

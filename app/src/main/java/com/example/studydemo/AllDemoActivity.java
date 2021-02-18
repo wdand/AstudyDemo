@@ -1,5 +1,6 @@
 package com.example.studydemo;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -46,6 +47,7 @@ import com.example.studydemo.adapter.UserAdapter;
 import com.example.studydemo.banner.BannerAct;
 import com.example.studydemo.broadcastreceiver.MyStaticBroadcastReceiver;
 import com.example.studydemo.clipUserIcon.ClHeaderActivity;
+import com.example.studydemo.datas.IntentData;
 import com.example.studydemo.datas.User;
 import com.example.studydemo.recycleviewdemo.RecycleViewDeleteAct;
 import com.example.studydemo.utils.GetGPSUtil;
@@ -76,7 +78,8 @@ public class AllDemoActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        StatusBarUtil.setTransparent(this,false);
+        IntentData user = (IntentData) getIntent().getParcelableExtra("wdss");
+        StatusBarUtil.setTransparent(this, false);
 //        getPersimmions();
 //        getWindow().setFlags(WindowManager.LayoutParams.FLAG_SECURE, WindowManager.LayoutParams.FLAG_SECURE);
         setContentView(R.layout.activity_all_demo);
@@ -173,6 +176,12 @@ public class AllDemoActivity extends Activity {
 //                Toast.makeText(MainActivity.this, result, Toast.LENGTH_SHORT).show();
             }
         });
+    }
+
+    @Override
+    protected void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+        Log.e(TAG, "onSaveInstanceState: ");
     }
 
     private void daoxu(String s) {

@@ -6,12 +6,14 @@ import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.example.studydemo.AllDemoActivity;
 import com.example.studydemo.R;
 import com.example.studydemo.recyclerviewchecked.adapter.BgSingleChoiceRecyAdapter;
 import com.example.studydemo.recyclerviewchecked.bean.Person;
@@ -57,6 +59,8 @@ public class BgSingleChoiceActivity extends AppCompatActivity {
                 if (view.getId() == R.id.tv3){
                     Toast.makeText(BgSingleChoiceActivity.this, "舒服了", Toast.LENGTH_SHORT).show();
                 }
+                startActivity(new Intent(BgSingleChoiceActivity.this, AllDemoActivity.class));
+
                 for (int i = 0; i < list.size(); i++) {
                     if (i == position) {
                         list.get(i).setChecked(true);

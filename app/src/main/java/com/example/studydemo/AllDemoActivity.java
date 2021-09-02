@@ -80,19 +80,13 @@ public class AllDemoActivity extends Activity {
         super.onCreate(savedInstanceState);
         IntentData user = (IntentData) getIntent().getParcelableExtra("wdss");
         StatusBarUtil.setTransparent(this, false);
-//        getPersimmions();
-//        getWindow().setFlags(WindowManager.LayoutParams.FLAG_SECURE, WindowManager.LayoutParams.FLAG_SECURE);
         setContentView(R.layout.activity_all_demo);
-//        String rid = JPushInterface.getRegistrationID(getApplicationContext());
-//        Log.d("rid", "onCreate: " + rid);
-
+        TextView textView = findViewById(R.id.save_data);
+        SharedPreferences sp = getSharedPreferences("data", MODE_PRIVATE);
         IntentFilter filter = new IntentFilter();
         filter.addAction("DynamicReceiver");
         //注册广播接收
         registerReceiver(dynamicReceiver, filter);
-
-        TextView textView = findViewById(R.id.save_data);
-        SharedPreferences sp = getSharedPreferences("data", MODE_PRIVATE);
         //第二个参数为缺省值，如果不存在该key，返回缺省值
         String name = sp.getString("name", "111");
         textView.setText(name);

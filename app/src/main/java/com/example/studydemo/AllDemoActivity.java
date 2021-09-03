@@ -86,6 +86,9 @@ public class AllDemoActivity extends Activity {
         IntentFilter filter = new IntentFilter();
         filter.addAction("DynamicReceiver");
         //注册广播接收
+
+
+        
         registerReceiver(dynamicReceiver, filter);
         //第二个参数为缺省值，如果不存在该key，返回缺省值
         String name = sp.getString("name", "111");

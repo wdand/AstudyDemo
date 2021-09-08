@@ -149,7 +149,8 @@ public class AllDemoActivity extends Activity {
                         ARouter.getInstance().build(ArouterConstants.ADDRESS_SELECT_ACT).navigation();
                         break;
                     case 10:
-                        daoxu("hello world");
+                        ARouter.getInstance().build(ArouterConstants.WEBVIEW_ACT).navigation();
+//                        daoxu("hello world");
                         break;
                     case 11:
                         saveData("weidong");

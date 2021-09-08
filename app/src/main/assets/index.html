@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+
+<script type="text/javascript">
+function getPasswd(){
+    var passwd = document.getElementById("pwdID");
+    var pwdBtn = document.getElementById("pwdBtnID");
+    if(passwd.type=="password")    {
+        passwd.type="text";
+        pwdBtn.value="隐藏";
+    }
+    else{
+        passwd.type="password";
+        pwdBtn.value="显示";
+    }
+    return "我是js方法的返回值";
+}
+function callAndroid(){
+    test.androidFunction("js通过JavascriptInterFace调用android原生中的方法");
+}
+</script>
+密码：<input id="pwdID" type="password" value="123123321321">
+<input id="pwdBtnID" type="button" onclick="getPasswd()" value="显示">
+<input id="callAndroid" type="button" onclick="callAndroid()" value="js通过JavascriptInterFace调用原生">
+<!--<input id="callAndroid2" type="button" onclick="callAndroidby()" value="js通过JavascriptInterFace调用原生">-->
+</html>

@@ -42,109 +42,45 @@
         android:largeHeap="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/deAppTheme">
-        <activity
-            android:name=".webview.WebViewActivity"
-            android:theme="@style/AppTheme" />
-        <activity
-            android:name=".home.activity.TestActivity"
-            android:theme="@style/AppTheme" />
-        <activity
-            android:name=".findyao.IndicatorActivity"
-            android:theme="@style/AppTheme" />
-        <activity
-            android:name=".layouyDemo.ConstraintlayoutDemo"
-            android:theme="@style/AppTheme" />
-        <activity
-            android:name=".RetrofitRxJavaDemo"
-            android:theme="@style/AppTheme" />
-        <activity
-            android:name=".AllDemoActivity"
-            android:theme="@style/AppTheme" /> <!-- 声明service组件 -->
-        <activity
-            android:name=".LocationActivity"
-            android:theme="@style/AppTheme" /> <!-- AK鉴权 -->
-        <activity
-            android:name=".addressselector.AddressSelectActivity"
-            android:theme="@style/AppTheme" /> <!-- http://lbsyun.baidu.com/apiconsole/key -->
-        <activity
-            android:name="com.bingkong.bkbase.LoginAct"
-            android:theme="@style/AppTheme" />
+        android:theme="@style/AppTheme">
+        <activity android:name=".webview.WebViewActivity"></activity>
+        <activity android:name=".home.activity.TestActivity" />
+        <activity android:name=".findyao.IndicatorActivity" />
+<!--        <activity android:name=".findyao.LoadingDemoActivity" />-->
+        <activity android:name=".layouyDemo.ConstraintlayoutDemo" />
+        <activity android:name=".RetrofitRxJavaDemo" />
+        <activity android:name=".AllDemoActivity" /> <!-- 声明service组件 -->
+        <activity android:name=".LocationActivity" /> <!-- AK鉴权 -->
+        <activity android:name=".addressselector.AddressSelectActivity" /> <!-- http://lbsyun.baidu.com/apiconsole/key -->
+        <activity android:name="com.bingkong.bkbase.LoginAct" />
         <activity
             android:name=".MenuActivity"
             android:theme="@style/MyBottomDialog" />
-        <activity
-            android:name=".banner.BannerAct"
-            android:theme="@style/AppTheme" />
-        <activity
-            android:name=".banner.ui.ConstraintLayoutBannerActivity"
-            android:theme="@style/AppTheme" />
-        <activity
-            android:name=".banner.ui.Vp2FragmentRecyclerviewActivity"
-            android:theme="@style/AppTheme" />
-        <activity
-            android:name=".banner.ui.RecyclerViewBannerActivity"
-            android:theme="@style/AppTheme" />
-        <activity
-            android:name=".banner.ui.VideoActivity"
-            android:theme="@style/AppTheme" />
-        <activity
-            android:name=".banner.ui.TVActivity"
-            android:theme="@style/AppTheme" />
-        <activity
-            android:name=".recyclerviewchecked.activity.RecycleVeiwCheckedParentsAct"
-            android:theme="@style/AppTheme" />
-        <activity
-            android:name=".recyclerviewchecked.activity.SingleChoiceHeadFootActivity"
-            android:theme="@style/AppTheme" />
-        <activity
-            android:name=".recyclerviewchecked.activity.MultipleChoiceActivity"
-            android:theme="@style/AppTheme" />
-        <activity
-            android:name=".recyclerviewchecked.activity.BgSingleChoiceActivity"
-            android:theme="@style/AppTheme" />
-        <activity
-            android:name=".recyclerviewchecked.activity.BgMultipleChoiceActivity"
-            android:theme="@style/AppTheme" />
-        <activity
-            android:name=".recyclerviewchecked.activity.MultipleChoiceHeadFootActivity"
-            android:theme="@style/AppTheme" />
-        <activity
-            android:name=".recyclerviewchecked.activity.SingleChoiceActivity"
-            android:theme="@style/AppTheme" />
-        <activity
-            android:name=".customwidget.customdialog.CustomDialogAct"
-            android:theme="@style/AppTheme" />
-        <activity
-            android:name=".layoutdemo.ConstraintLayoutAct"
-            android:theme="@style/AppTheme" />
-        <activity
-            android:name=".recycleviewdemo.RecycleViewDeleteAct"
-            android:theme="@style/AppTheme" />
-        <activity
-            android:name=".bottomnavigations.HelloWorld"
-            android:theme="@style/AppTheme" />
-        <activity
-            android:name=".bottomnavigations.RadiobuttonAndFragmentAct"
-            android:theme="@style/AppTheme" />
-        <activity
-            android:name=".bottomnavigations.ViewPageAndRadioGroupAct"
-            android:theme="@style/AppTheme" />
-        <activity
-            android:name=".bottomnavigations.BottomNavigationViewAct"
-            android:theme="@style/AppTheme" />
-        <activity
-            android:name=".bottomnavigations.BottomNavigationBarActivity"
-            android:theme="@style/AppTheme" />
-        <activity
-            android:name=".clipUserIcon.ClHeaderActivity"
-            android:theme="@style/AppTheme" />
-        <activity
-            android:name=".clipUserIcon.ClipHeaderActivity"
-            android:theme="@style/AppTheme" />
-        <activity
-            android:name=".MainActivity"
-            >
+        <activity android:name=".banner.BannerAct" />
+        <activity android:name=".banner.ui.ConstraintLayoutBannerActivity" />
+        <activity android:name=".banner.ui.Vp2FragmentRecyclerviewActivity" />
+        <activity android:name=".banner.ui.RecyclerViewBannerActivity" />
+        <activity android:name=".banner.ui.VideoActivity" />
+        <activity android:name=".banner.ui.TVActivity" />
+        <activity android:name=".recyclerviewchecked.activity.RecycleVeiwCheckedParentsAct" />
+        <activity android:name=".recyclerviewchecked.activity.SingleChoiceHeadFootActivity" />
+        <activity android:name=".recyclerviewchecked.activity.MultipleChoiceActivity" />
+        <activity android:name=".recyclerviewchecked.activity.BgSingleChoiceActivity" />
+        <activity android:name=".recyclerviewchecked.activity.BgMultipleChoiceActivity" />
+        <activity android:name=".recyclerviewchecked.activity.MultipleChoiceHeadFootActivity" />
+        <activity android:name=".recyclerviewchecked.activity.SingleChoiceActivity" />
+        <activity android:name=".customwidget.customdialog.CustomDialogAct" />
+        <activity android:name=".layoutdemo.ConstraintLayoutAct" />
+        <activity android:name=".recycleviewdemo.RecycleViewDeleteAct" />
+        <activity android:name=".bottomnavigations.HelloWorld" />
+        <activity android:name=".bottomnavigations.RadiobuttonAndFragmentAct" />
+        <activity android:name=".bottomnavigations.ViewPageAndRadioGroupAct" />
+        <activity android:name=".bottomnavigations.BottomNavigationViewAct" />
+        <activity android:name=".bottomnavigations.BottomNavigationBarActivity" />
+        <activity android:name=".clipUserIcon.ClHeaderActivity" />
+        <activity android:name=".clipUserIcon.ClipHeaderActivity" />
+        <activity android:name=".MainActivity"
+            android:theme="@style/deAppTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

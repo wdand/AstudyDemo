@@ -21,6 +21,8 @@ allprojects {
         google()
         jcenter()
         maven { url "https://jitpack.io" }
+        mavenCentral()
+        maven { url "https://mirrors.tencent.com/nexus/repository/maven-public/" }
     }
 }
 

@@ -3,8 +3,10 @@ package com.example.studydemo;
 import android.app.Application;
 import android.app.Service;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.ApplicationInfo;
 import android.os.Vibrator;
+import android.util.Log;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatDelegate;
@@ -28,6 +30,10 @@ import com.scwang.smartrefresh.layout.api.RefreshHeader;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
 import com.scwang.smartrefresh.layout.footer.ClassicsFooter;
 import com.scwang.smartrefresh.layout.header.ClassicsHeader;
+import com.tencent.imsdk.v2.V2TIMCallback;
+import com.tencent.imsdk.v2.V2TIMManager;
+import com.tencent.imsdk.v2.V2TIMSDKConfig;
+import com.tencent.imsdk.v2.V2TIMSDKListener;
 
 import static com.bingkong.bknet.http.retrofit.TokenManager.SP_BASE_URL;
 
@@ -43,6 +49,7 @@ public class LocationApplication extends ComApp {
     public Vibrator mVibrator;
 
     private static Context context;
+    private static final String TAG = "LocationApplication";
 
     static {
         //启用矢量图兼容
@@ -80,9 +87,10 @@ public class LocationApplication extends ComApp {
     }
 
 
-    public static Context getContext(){
+    public static Context getContext() {
         return context;
     }
+
     public static boolean isApkInDebug(Context context) {
         try {
             ApplicationInfo info = context.getApplicationInfo();
@@ -96,9 +104,8 @@ public class LocationApplication extends ComApp {
     public void onCreate() {
         super.onCreate();
         setDeBug(true);
-        context=getApplicationContext();
+        context = getApplicationContext();
         String baseUrl;
-        super.onCreate();
         ARouter.init(this);
         /***
          * 初始化定位sdk
@@ -110,12 +117,41 @@ public class LocationApplication extends ComApp {
         SDKInitializer.setCoordType(CoordType.BD09LL);
         Context context = getApplicationContext();
         baseUrl = context.getResources().getString(R.string.my_profile);
-        SPUtils spUtils=  SPUtils.getInstance();
+        SPUtils spUtils = SPUtils.getInstance();
 
         LogUtils.logd("----printBaseUrl---", SPUtils.getInstance().getString(SP_BASE_URL, "---"));
         String savedUrl = (String) SPUtils.getInstance().getString(SP_BASE_URL, baseUrl);
         TokenManager.getInstance().initOnApplicationCreate(baseUrl);
         CrashRemoteHandle.getInstance().init(getApplicationContext());
+
+        // 1. 从 IM 控制台获取应用 SDKAppID，详情请参考 SDKAppID。
+        // 2. 初始化 config 对象
+        V2TIMSDKConfig config = new V2TIMSDKConfig();
+        // 3. 指定 log 输出级别，详情请参考 SDKConfig。
+        config.setLogLevel(V2TIMSDKConfig.V2TIM_LOG_INFO);
+        // 4. 初始化 SDK 并设置 V2TIMSDKListener 的监听对象。
+        // initSDK 后 SDK 会自动连接网络，网络连接状态可以在 V2TIMSDKListener 回调里面监听。
+        V2TIMManager.getInstance().initSDK(context, 1400588423, config, new V2TIMSDKListener() {
+            // 5. 监听 V2TIMSDKListener 回调
+            @Override
+            public void onConnecting() {
+                // 正在连接到腾讯云服务器
+            }
+
+            @Override
+            public void onConnectSuccess() {
+                // 已经成功连接到腾讯云服务器
+                Log.e(TAG, "连接腾讯云服务器成功");
+
+            }
+
+            @Override
+            public void onConnectFailed(int code, String error) {
+                // 连接腾讯云服务器失败
+                Log.e(TAG, "连接腾讯云服务器失败");
+
+            }
+        });
     }
 
 

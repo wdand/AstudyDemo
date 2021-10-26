@@ -16,7 +16,7 @@ import android.view.View;
 import com.bingkong.bkbase.utils.LogUtils;
 import com.bingkong.bkbase.utils.ViewUtils;
 import com.bumptech.glide.Glide;
-import com.bumptech.glide.request.animation.GlideAnimation;
+//import com.bumptech.glide.request.animation.GlideAnimation;
 import com.bumptech.glide.request.target.SimpleTarget;
 import com.example.studydemo.R;
 
@@ -131,18 +131,18 @@ public class SelectColotCircleView extends View {
 
     private void initShaderToPaint(String bitmapPath) {
 //        LogUtils.logd(TAG, "initShaderToPaint " + bitmapPath);
-        try {
-            Glide.with(getContext()).load(bitmapPath).asBitmap().centerCrop().into(new SimpleTarget<Bitmap>() {
-                @Override
-                public void onResourceReady(Bitmap resource, GlideAnimation glideAnimation) {
-                    BitmapShader shader = new BitmapShader(resource, Shader.TileMode.CLAMP, Shader.TileMode.CLAMP);
-                    mPaint.setShader(shader);
-                    invalidate();
-                }
-            });
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+//        try {
+//            Glide.with(getContext()).load(bitmapPath).asBitmap().centerCrop().into(new SimpleTarget<Bitmap>() {
+//                @Override
+//                public void onResourceReady(Bitmap resource, GlideAnimation glideAnimation) {
+//                    BitmapShader shader = new BitmapShader(resource, Shader.TileMode.CLAMP, Shader.TileMode.CLAMP);
+//                    mPaint.setShader(shader);
+//                    invalidate();
+//                }
+//            });
+//
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
     }
 }

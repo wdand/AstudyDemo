@@ -2,16 +2,22 @@ package com.example.studydemo;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
+import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.os.PersistableBundle;
+import android.os.PowerManager;
+import android.provider.Settings;
 import android.util.Log;
 import android.util.SparseArray;
 import android.view.KeyEvent;
@@ -61,12 +67,34 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private ImageView shopcarImg;
     private ImageView findyaoImg;
     private ImageView mineImg;
-
+    @RequiresApi(api = Build.VERSION_CODES.M)
+    private  boolean isIgnoringBatteryOptimizations() {
+        boolean isIgnoring = false;
+        PowerManager powerManager = (PowerManager) getSystemService(Context.POWER_SERVICE);
+        if (powerManager != null) {
+            isIgnoring = powerManager.isIgnoringBatteryOptimizations(getPackageName());
+        }
+        return isIgnoring;
+    }
+    @RequiresApi(api = Build.VERSION_CODES.M)
+    public void requestIgnoreBatteryOptimizations() {
+        try {
+            Intent intent = new Intent(Settings.ACTION_REQUEST_IGNORE_BATTERY_OPTIMIZATIONS);
+            intent.setData(Uri.parse("package:" + getPackageName()));
+            startActivity(intent);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setTheme(R.style.AppTheme);
         Log.d(getClass().getSimpleName(), "onCreate: ");
+        boolean isInWhiteList = isIgnoringBatteryOptimizations();
+        requestIgnoreBatteryOptimizations();
+
         Log.e("context", "getApplication in Activity: " + getApplication().getClass().getName());
         Log.e("context", "getApplicationContext in Activity: " + getApplicationContext().getClass().getName());
         Log.e("context", "getBaseContext in Activity: " + getBaseContext().getClass().getName());

@@ -50,6 +50,7 @@ public class CanMoveView extends ImageView {
         return getResources().getDimensionPixelSize(resourceId);
     }
 
+
     private float downX;
     private float downY;
 

@@ -22,7 +22,6 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
-import android.os.Vibrator;
 import android.provider.DocumentsContract;
 import android.provider.MediaStore;
 import android.util.Log;
@@ -89,6 +88,7 @@ public class AllDemoActivity extends Activity {
         //注册广播接收
 
 
+        
         registerReceiver(dynamicReceiver, filter);
         //第二个参数为缺省值，如果不存在该key，返回缺省值
         String name = sp.getString("name", "111");
@@ -170,13 +170,6 @@ public class AllDemoActivity extends Activity {
                     case 15:
                         allShare();
                         break;
-                    case 17:
-                        Vibrator vibrator = (Vibrator) getSystemService(VIBRATOR_SERVICE);
-
-                        getSystemService(VIBRATOR_SERVICE);
-                        //震动3秒
-                        vibrator.vibrate(3000);
-                        break;
                 }
 //                Toast.makeText(MainActivity.this, result, Toast.LENGTH_SHORT).show();
             }
@@ -217,7 +210,6 @@ public class AllDemoActivity extends Activity {
         list.add(new User(R.drawable.actor, "获取地理位置", ""));
         list.add(new User(R.drawable.actor, "分享", ""));
         list.add(new User(R.drawable.actor, "constraint-layout", ""));
-        list.add(new User(R.drawable.actor, "震动", ""));
     }
 
     public void downloadImage(String Url) {

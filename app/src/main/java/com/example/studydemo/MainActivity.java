@@ -87,23 +87,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         switchContent(home);
         homeImg.setSelected(true);
         initView();
-        String userSig = GenerateTestUserSig.genTestUserSig("123");
-        V2TIMManager.getInstance().login("123", userSig, new V2TIMCallback() {
-            @Override
-            public void onError(final int code, final String desc) {
-                runOnUiThread(new Runnable() {
-                    public void run() {
-                        Toast.makeText(MainActivity.this, "errCode = " + code + ", errInfo = " + desc, Toast.LENGTH_SHORT).show();
-                    }
-                });
-                Log.e(TAG, "imLogin errorCode = " + code + ", errorInfo = " + desc);
-            }
-
-            @Override
-            public void onSuccess() {
-                Log.e(TAG, "imLogin success");
-            }
-        });
 
 
     }

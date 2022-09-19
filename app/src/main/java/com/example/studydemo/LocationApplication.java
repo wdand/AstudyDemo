@@ -5,6 +5,7 @@ import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
+import android.os.Bundle;
 import android.os.Vibrator;
 import android.util.Log;
 
@@ -34,6 +35,8 @@ import com.tencent.imsdk.v2.V2TIMCallback;
 import com.tencent.imsdk.v2.V2TIMManager;
 import com.tencent.imsdk.v2.V2TIMSDKConfig;
 import com.tencent.imsdk.v2.V2TIMSDKListener;
+import com.uc.crashsdk.export.CrashApi;
+import com.umeng.commonsdk.UMConfigure;
 
 import static com.bingkong.bknet.http.retrofit.TokenManager.SP_BASE_URL;
 
@@ -107,6 +110,12 @@ public class LocationApplication extends ComApp {
         context = getApplicationContext();
         String baseUrl;
         ARouter.init(this);
+        UMConfigure.setLogEnabled(true);
+//        UMConfigure.preInit(this,"632698c388ccdf4b7e30d070",BuildConfig.packageChannel);
+        UMConfigure.init(context, "632698c388ccdf4b7e30d070", "Umeng", UMConfigure.DEVICE_TYPE_PHONE, "");
+        final Bundle customInfo = new Bundle();
+        customInfo.putBoolean("mCallNativeDefaultHandler",true);
+        CrashApi.getInstance().updateCustomInfo(customInfo);
         /***
          * 初始化定位sdk
          */
@@ -124,34 +133,6 @@ public class LocationApplication extends ComApp {
         TokenManager.getInstance().initOnApplicationCreate(baseUrl);
         CrashRemoteHandle.getInstance().init(getApplicationContext());
 
-        // 1. 从 IM 控制台获取应用 SDKAppID，详情请参考 SDKAppID。
-        // 2. 初始化 config 对象
-        V2TIMSDKConfig config = new V2TIMSDKConfig();
-        // 3. 指定 log 输出级别，详情请参考 SDKConfig。
-        config.setLogLevel(V2TIMSDKConfig.V2TIM_LOG_INFO);
-        // 4. 初始化 SDK 并设置 V2TIMSDKListener 的监听对象。
-        // initSDK 后 SDK 会自动连接网络，网络连接状态可以在 V2TIMSDKListener 回调里面监听。
-        V2TIMManager.getInstance().initSDK(context, 1400588423, config, new V2TIMSDKListener() {
-            // 5. 监听 V2TIMSDKListener 回调
-            @Override
-            public void onConnecting() {
-                // 正在连接到腾讯云服务器
-            }
-
-            @Override
-            public void onConnectSuccess() {
-                // 已经成功连接到腾讯云服务器
-                Log.e(TAG, "连接腾讯云服务器成功");
-
-            }
-
-            @Override
-            public void onConnectFailed(int code, String error) {
-                // 连接腾讯云服务器失败
-                Log.e(TAG, "连接腾讯云服务器失败");
-
-            }
-        });
     }
 
 

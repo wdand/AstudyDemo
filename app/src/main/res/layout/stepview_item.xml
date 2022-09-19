@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/color_blue"
+    >
+    <LinearLayout
+        android:id="@+id/left"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingRight="10dp"
+        android:paddingLeft="10dp">
+
+        <ImageView
+            android:id="@+id/stepicon_iv"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:layout_marginVertical="2dp"
+            android:src="@drawable/attention"
+            />
+        <View
+            android:id="@+id/line_v"
+            android:layout_width="2dp"
+            android:layout_height="30dp"
+            android:background="#FF95DD00"
+            android:layout_gravity="center_horizontal"
+            android:visibility="gone"
+            />
+
+        <View
+            android:id="@+id/line_vx"
+            android:layout_width="12dp"
+            android:layout_height="30dp"
+            android:layerType="software"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/dotted_line_vertical" />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_toRightOf="@+id/left"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:paddingRight="10dp"
+        android:paddingLeft="10dp"
+        >
+        <TextView
+            android:id="@+id/description_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/sp_14"
+            android:textColor="@color/black"
+            android:text="订单正在派送中"/>
+
+    </LinearLayout>
+</RelativeLayout>

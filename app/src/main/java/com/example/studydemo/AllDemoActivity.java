@@ -88,6 +88,8 @@ public class AllDemoActivity extends Activity {
         //注册广播接收
 
 
+        String s[]={"1"};
+        String aa = s[5];
         
         registerReceiver(dynamicReceiver, filter);
         //第二个参数为缺省值，如果不存在该key，返回缺省值
@@ -112,7 +114,7 @@ public class AllDemoActivity extends Activity {
                         break;
                     case 1:
 //                        EventBus.getDefault().post(new String("213"));
-                        Intent intent213 = new Intent(AllDemoActivity.this, RetrofitRxJavaDemo.class);
+                        Intent intent213 = new Intent(AllDemoActivity.this, TestHorizontalStepViewActivity.class);
                         startActivity(intent213);
                         break;
                     case 2:
